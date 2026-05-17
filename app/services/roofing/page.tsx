@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Roofing Service | WK Roofbuild",
@@ -27,7 +28,7 @@ export default function RoofingPage() {
               <span style={{ color: "#FF5A1A" }}>Roofing</span>
             </div>
           </div>
-          <img src="https://picsum.photos/seed/roofing1/600/400" alt="Roofing" className="rounded-xl w-full max-w-md object-cover" style={{ height: "300px" }} />
+          <Image src="https://picsum.photos/seed/roofing1/600/400" alt="Roofing" width={600} height={400} className="rounded-xl w-full max-w-md object-cover" style={{ height: "300px" }} />
         </div>
       </section>
 

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import FAQSection from "@/components/FAQSection";
 
 /* ─── HERO ───────────────────────────────────────────────────── */
@@ -59,22 +60,28 @@ function AboutSection() {
         {/* Left — photo collage (3 images) */}
         <div className="grid grid-cols-2 gap-3">
           {/* Tall left */}
-          <img
+          <Image
             src="https://picsum.photos/seed/house10/400/600"
             alt="Our work"
+            width={400}
+            height={600}
             className="rounded object-cover w-full row-span-2"
             style={{ height: "380px" }}
           />
           {/* Two stacked right */}
-          <img
+          <Image
             src="https://picsum.photos/seed/roof20/400/280"
             alt="Roofing"
+            width={400}
+            height={280}
             className="rounded object-cover w-full"
             style={{ height: "183px" }}
           />
-          <img
+          <Image
             src="https://picsum.photos/seed/tile30/400/280"
             alt="Tiling"
+            width={400}
+            height={280}
             className="rounded object-cover w-full"
             style={{ height: "183px" }}
           />
@@ -171,9 +178,11 @@ function WhySection() {
             </p>
           </div>
           <div className="overflow-hidden rounded-lg">
-            <img
+            <Image
               src="https://picsum.photos/seed/roofwork55/700/420"
               alt="Our workmanship"
+              width={700}
+              height={420}
               className="w-full h-64 object-cover"
             />
           </div>

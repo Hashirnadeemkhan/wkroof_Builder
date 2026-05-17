@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Guttering Services | WK Roofbuild",
@@ -79,6 +80,4 @@ export default function GutteringPage() {
       </section>
     </>
   );
-}
-);
 }

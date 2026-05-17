@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --orange: #FF5A1A;
+  --navy: #1B2A41;
+  --navy-dark: #131F31;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: #fff; color: #1B2A41; font-family: "Inter", sans-serif; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #FF5A1A; border-radius: 3px; }
+
+/* ── Buttons ─────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #FF5A1A;
+  color: #fff;
+  padding: 13px 28px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 14px;
+  transition: background 0.2s, transform 0.15s;
+  border: 2px solid #FF5A1A;
+}
+.btn-primary:hover { background: #e04a0e; transform: translateY(-1px); }
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: #fff;
+  padding: 13px 28px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 14px;
+  border: 2px solid rgba(255,255,255,0.7);
+  transition: all 0.2s;
+}
+.btn-outline:hover { background: #fff; color: #1B2A41; }
+
+.btn-orange {
+  display: inline-block;
+  background: #FF5A1A;
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 14px;
+  transition: background 0.2s;
+  border: 2px solid #FF5A1A;
+}
+.btn-orange:hover { background: #e04a0e; }
+
+.btn-outline-dark {
+  display: inline-block;
+  color: #FF5A1A;
+  padding: 12px 28px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 14px;
+  border: 2px solid #FF5A1A;
+  transition: all 0.2s;
+}
+.btn-outline-dark:hover { background: #FF5A1A; color: #fff; }
+
+/* ── Accent label ──────────────────────── */
+.label-orange {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #FF5A1A;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* ── Section heading underline ─────────── */
+.section-heading {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1B2A41;
+  line-height: 1.2;
+}
+.section-heading.white { color: #fff; }
+
+/* ── Service card ─────────────────────── */
+.service-card { transition: box-shadow 0.3s; }
+.service-card:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.12); }
+
+/* ── Read-more button full width ──────── */
+.read-more-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: #FF5A1A;
+  color: #fff;
+  padding: 12px;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: background 0.2s;
+}
+.read-more-btn:hover { background: #e04a0e; }
+
+/* ── Orange icon box ──────────────────── */
+.icon-box {
+  width: 52px;
+  height: 52px;
+  background: #FF5A1A;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ── Process step number ──────────────── */
+.step-num {
+  width: 48px;
+  height: 48px;
+  background: #FF5A1A;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 800;
+  font-size: 15px;
+  margin: 0 auto 16px;
+}
+
+/* ── FAQ accordion ────────────────────── */
+.faq-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+.faq-body.open { max-height: 400px; }
+
+/* ── Nav link active/hover ────────────── */
+.nav-link { position: relative; }
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -3px; left: 0;
+  width: 0; height: 2px;
+  background: #FF5A1A;
+  transition: width 0.25s;
+}
+.nav-link:hover::after,
+.nav-link.active::after { width: 100%; }
+
+/* ── Social footer btn ────────────────── */
+.social-btn {
+  width: 36px; height: 36px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: #ccc;
+  transition: background 0.25s, color 0.25s;
+}
+.social-btn:hover { background: #FF5A1A; color: #fff; }

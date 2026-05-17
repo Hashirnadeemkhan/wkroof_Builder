@@ -27,7 +27,7 @@ export default function FlatRoofsPage() {
               <span style={{ color: "#FF5A1A" }}>Flat Roofs</span>
             </div>
           </div>
-          <img src="https://picsum.photos/seed/flatroof3/600/400" alt="Flat Roofs" className="rounded-xl w-full max-w-md object-cover" style={{ height: "300px" }} />
+          <Image src="https://picsum.photos/seed/flatroof3/600/400" alt="Flat Roofs" width={600} height={400} className="rounded-xl w-full max-w-md object-cover" style={{ height: "300px" }} />
         </div>
       </section>
 

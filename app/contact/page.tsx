@@ -30,7 +30,7 @@ export default function ContactPage() {
           {/* Info */}
           <div>
             <p className="text-sm font-semibold uppercase tracking-widest mb-2" style={{ color: "#FF5A1A" }}>Contact Information</p>
-            <h2 className="text-3xl font-bold mb-5 section-title left" style={{ color: "#1B2A41" }}>We'd Love to Hear From You</h2>
+            <h2 className="text-3xl font-bold mb-5 section-title left" style={{ color: "#1B2A41" }}>We&apos;d Love to Hear From You</h2>
             <p className="text-gray-600 leading-relaxed mb-8">
               Whether you have a question, want to request a quote, or simply need some advice on your project, our team is here to help. Get in touch using any of the methods below.
             </p>

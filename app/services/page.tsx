@@ -94,12 +94,13 @@ export default function ServicesPage() {
                 className="border border-gray-200 bg-white service-card"
               >
                 {/* Photo */}
-                <img
+                <Image
                   src={svc.img}
                   alt={svc.title}
+                  width={600}
+                  height={350}
                   className="w-full object-cover"
                   style={{ height: "200px" }}
-                  loading="lazy"
                 />
                 {/* Content */}
                 <div className="p-5">

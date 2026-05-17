@@ -27,7 +27,7 @@ export default function GutteringPage() {
               <span style={{ color: "#FF5A1A" }}>Guttering</span>
             </div>
           </div>
-          <img src="https://picsum.photos/seed/gutter6/600/400" alt="Guttering" className="rounded-xl w-full max-w-md object-cover" style={{ height: "300px" }} />
+          <Image src="https://picsum.photos/seed/gutter6/600/400" alt="Guttering" width={600} height={400} className="rounded-xl w-full max-w-md object-cover" style={{ height: "300px" }} />
         </div>
       </section>
 
@@ -79,4 +79,6 @@ export default function GutteringPage() {
       </section>
     </>
   );
+}
+);
 }

@@ -1,13 +1,12 @@
 import Link from "next/link";
+import Image from "next/image";
 import FAQSection from "@/components/FAQSection";
 
 const img1 = "/WhatsApp%20Image%202026-05-18%20at%206.12.54%20PM.jpeg";
 const img2 = "/WhatsApp%20Image%202026-05-18%20at%206.19.42%20PM.jpeg";
 const img3 = "/May%2018%2C%202026%2C%2006_40_29%20PM.png";
 const img4 = "/WhatsApp%20Image%202026-05-18%20at%209.29.46%20PM.jpeg";
-const img5 = "/WhatsApp%20Image%202026-05-19%20at%207.56.14%20PM.jpeg";
 const img6 = "/WhatsApp%20Image%202026-05-19%20at%207.56.15%20PM.jpeg";
-const img7 = "/Screenshot%202026-05-13%20004328.jpg";
 const heroVideo = "/WhatsApp%20Video%202026-05-18%20at%206.12.27%20PM.mp4";
 
 /* ─── HERO ───────────────────────────────────────────────────── */
@@ -17,7 +16,6 @@ function HeroSection() {
       className="relative"
       style={{ minHeight: "90vh", display: "flex", alignItems: "center" }}
     >
-      {/* Background video */}
       <video
         autoPlay
         muted
@@ -29,7 +27,6 @@ function HeroSection() {
         <source src={heroVideo} type="video/mp4" />
       </video>
 
-      {/* Dark gradient overlay */}
       <div
         className="absolute inset-0"
         style={{
@@ -39,9 +36,7 @@ function HeroSection() {
         }}
       />
 
-      {/* Content */}
       <div className="relative max-w-7xl mx-auto px-6 py-24 w-full" style={{ zIndex: 2 }}>
-        {/* Badge */}
         <div
           className="inline-block px-4 py-1.5 text-white text-xs font-bold uppercase tracking-widest mb-6"
           style={{ backgroundColor: "#FF5A1A" }}
@@ -82,31 +77,18 @@ function AboutSection() {
     <section className="py-20 px-6 bg-white">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 items-center">
 
-        {/* Left — photo collage (3 images) */}
         <div className="grid grid-cols-2 gap-3">
-          {/* Tall left */}
-          <img
-            src={img1}
-            alt="Our roofing work"
-            className="rounded object-cover w-full row-span-2"
-            style={{ height: "380px" }}
-          />
-          {/* Two stacked right */}
-          <img
-            src={img2}
-            alt="Roofing project"
-            className="rounded object-cover w-full"
-            style={{ height: "183px" }}
-          />
-          <img
-            src={img4}
-            alt="Completed roof"
-            className="rounded object-cover w-full"
-            style={{ height: "183px" }}
-          />
+          <div className="relative rounded overflow-hidden row-span-2" style={{ height: "380px" }}>
+            <Image src={img1} alt="Our roofing work" fill className="object-cover" sizes="200px" />
+          </div>
+          <div className="relative rounded overflow-hidden" style={{ height: "183px" }}>
+            <Image src={img2} alt="Roofing project" fill className="object-cover" sizes="200px" />
+          </div>
+          <div className="relative rounded overflow-hidden" style={{ height: "183px" }}>
+            <Image src={img4} alt="Completed roof" fill className="object-cover" sizes="200px" />
+          </div>
         </div>
 
-        {/* Right — text */}
         <div>
           <span className="label-orange">About Us</span>
           <h2 className="section-heading mb-5">
@@ -182,7 +164,6 @@ function WhySection() {
     <section style={{ backgroundColor: "#1B2A41" }} className="py-20 px-6">
       <div className="max-w-7xl mx-auto">
 
-        {/* Top row: text left, image right */}
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-14">
           <div>
             <span className="label-orange">Why Choose</span>
@@ -196,17 +177,17 @@ function WhySection() {
               consultation to completion, we ensure every detail exceeds your expectations.
             </p>
           </div>
-          <div className="overflow-hidden rounded-lg">
-            <img
+          <div className="overflow-hidden rounded-lg relative" style={{ height: "256px" }}>
+            <Image
               src={img3}
               alt="Our professional roofing work"
-              className="w-full object-cover"
-              style={{ height: "256px" }}
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
             />
           </div>
         </div>
 
-        {/* Feature cards */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {cards.map((c) => (
             <div
@@ -281,29 +262,27 @@ function ServicesSection() {
   return (
     <section className="py-20 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
         <div className="text-center mb-12">
           <span className="label-orange">Our Services</span>
           <h2 className="section-heading">Explore Our Services</h2>
         </div>
 
-        {/* 3-column grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {ALL_SERVICES.map((svc) => (
             <div
               key={svc.href}
               className="border border-gray-200 bg-white service-card"
             >
-              {/* Photo — full width, no padding */}
-              <img
-                src={svc.img}
-                alt={svc.title}
-                className="w-full object-cover"
-                style={{ height: "200px" }}
-                loading="lazy"
-              />
+              <div className="relative" style={{ height: "200px" }}>
+                <Image
+                  src={svc.img}
+                  alt={svc.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+              </div>
 
-              {/* Content */}
               <div className="p-5">
                 <h3
                   className="text-lg font-bold mb-2"
@@ -314,7 +293,6 @@ function ServicesSection() {
                 <p className="text-gray-500 text-sm leading-relaxed mb-5">
                   {svc.desc}
                 </p>
-                {/* Centred READ MORE button */}
                 <div className="text-center">
                   <Link href={svc.href} className="read-more-btn inline-block px-10">
                     Read More
@@ -436,7 +414,6 @@ function TestimonialsSection() {
         <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {reviews.map((r) => (
             <div key={r.name} className="bg-white rounded p-8">
-              {/* Stars */}
               <div className="flex gap-1 mb-4">
                 {[...Array(5)].map((_, i) => (
                   <svg key={i} className="w-4 h-4" style={{ color: "#FF5A1A" }} viewBox="0 0 20 20" fill="currentColor">

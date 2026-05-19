@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -38,11 +39,6 @@ const galleryItems = [
     alt: "Glass shower enclosure with marble tiling",
     caption: "Marble Tile Installation",
   },
-  {
-    src: "/Screenshot%202026-05-13%20004328.jpg",
-    alt: "WK Roofbuild completed work",
-    caption: "Building Services",
-  },
 ];
 
 export default function GalleryPage() {
@@ -73,7 +69,6 @@ export default function GalleryPage() {
             A showcase of our completed roofing, guttering, painting, and tiling projects.
             Every image reflects the quality and care we bring to each job.
           </p>
-          {/* Breadcrumb */}
           <div className="flex items-center gap-2 mt-6 text-sm text-gray-400">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
             <span>/</span>
@@ -101,19 +96,19 @@ export default function GalleryPage() {
             </p>
           </div>
 
-          {/* Masonry-style grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {galleryItems.map((item, index) => (
               <div
                 key={index}
                 className="group relative overflow-hidden rounded-lg shadow-md"
-                style={{ aspectRatio: index === 0 || index === 4 ? "4/3" : "4/3" }}
+                style={{ height: "256px" }}
               >
-                <img
+                <Image
                   src={item.src}
                   alt={item.alt}
-                  className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
                 {/* Hover overlay with caption */}
                 <div

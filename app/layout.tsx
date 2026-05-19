@@ -7,6 +7,11 @@ import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
   title: "WK Roofbuild | Professional Painting & Tiling Services London",
   description:
     "WK Roofbuild Ltd provides expert painting and tiling installation services across London. Quality craftsmanship, transparent pricing, certified & insured. Call 07863 216381.",
@@ -35,7 +40,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/logo.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/logo.png" />
       </head>
       <body className={inter.className}>
         <Navbar />

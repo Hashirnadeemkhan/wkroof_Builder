@@ -1,21 +1,46 @@
 import Link from "next/link";
-import Image from "next/image";
 import FAQSection from "@/components/FAQSection";
+
+const img1 = "/WhatsApp%20Image%202026-05-18%20at%206.12.54%20PM.jpeg";
+const img2 = "/WhatsApp%20Image%202026-05-18%20at%206.19.42%20PM.jpeg";
+const img3 = "/May%2018%2C%202026%2C%2006_40_29%20PM.png";
+const img4 = "/WhatsApp%20Image%202026-05-18%20at%209.29.46%20PM.jpeg";
+const img5 = "/WhatsApp%20Image%202026-05-19%20at%207.56.14%20PM.jpeg";
+const img6 = "/WhatsApp%20Image%202026-05-19%20at%207.56.15%20PM.jpeg";
+const img7 = "/Screenshot%202026-05-13%20004328.jpg";
+const heroVideo = "/WhatsApp%20Video%202026-05-18%20at%206.12.27%20PM.mp4";
 
 /* ─── HERO ───────────────────────────────────────────────────── */
 function HeroSection() {
   return (
     <section
       className="relative"
-      style={{
-        background:
-          "linear-gradient(to right, rgba(10,20,35,0.92) 55%, rgba(10,20,35,0.55) 100%), url('https://picsum.photos/seed/building99/1600/900') center/cover no-repeat",
-        minHeight: "90vh",
-        display: "flex",
-        alignItems: "center",
-      }}
+      style={{ minHeight: "90vh", display: "flex", alignItems: "center" }}
     >
-      <div className="max-w-7xl mx-auto px-6 py-24 w-full">
+      {/* Background video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{ zIndex: 0 }}
+      >
+        <source src={heroVideo} type="video/mp4" />
+      </video>
+
+      {/* Dark gradient overlay */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(to right, rgba(10,20,35,0.92) 55%, rgba(10,20,35,0.55) 100%)",
+          zIndex: 1,
+        }}
+      />
+
+      {/* Content */}
+      <div className="relative max-w-7xl mx-auto px-6 py-24 w-full" style={{ zIndex: 2 }}>
         {/* Badge */}
         <div
           className="inline-block px-4 py-1.5 text-white text-xs font-bold uppercase tracking-widest mb-6"
@@ -60,28 +85,22 @@ function AboutSection() {
         {/* Left — photo collage (3 images) */}
         <div className="grid grid-cols-2 gap-3">
           {/* Tall left */}
-          <Image
-            src="https://picsum.photos/seed/house10/400/600"
-            alt="Our work"
-            width={400}
-            height={600}
+          <img
+            src={img1}
+            alt="Our roofing work"
             className="rounded object-cover w-full row-span-2"
             style={{ height: "380px" }}
           />
           {/* Two stacked right */}
-          <Image
-            src="https://picsum.photos/seed/roof20/400/280"
-            alt="Roofing"
-            width={400}
-            height={280}
+          <img
+            src={img2}
+            alt="Roofing project"
             className="rounded object-cover w-full"
             style={{ height: "183px" }}
           />
-          <Image
-            src="https://picsum.photos/seed/tile30/400/280"
-            alt="Tiling"
-            width={400}
-            height={280}
+          <img
+            src={img4}
+            alt="Completed roof"
             className="rounded object-cover w-full"
             style={{ height: "183px" }}
           />
@@ -178,12 +197,11 @@ function WhySection() {
             </p>
           </div>
           <div className="overflow-hidden rounded-lg">
-            <Image
-              src="https://picsum.photos/seed/roofwork55/700/420"
-              alt="Our workmanship"
-              width={700}
-              height={420}
-              className="w-full h-64 object-cover"
+            <img
+              src={img3}
+              alt="Our professional roofing work"
+              className="w-full object-cover"
+              style={{ height: "256px" }}
             />
           </div>
         </div>
@@ -213,49 +231,49 @@ const ALL_SERVICES = [
     href: "/services/roofing",
     title: "Roofing",
     desc: "Protect your property with expertly crafted roofing designed to withstand the elements while enhancing exterior style and value.",
-    img: "https://picsum.photos/seed/roofing1/600/350",
+    img: img1,
   },
   {
     href: "/services/new-roofs",
     title: "New Roofs",
     desc: "Upgrade your home with a premium new roof built for long-lasting performance, improved energy efficiency, and modern visual appeal.",
-    img: "https://picsum.photos/seed/newroof2/600/350",
+    img: img2,
   },
   {
     href: "/services/flat-roofs",
     title: "Flat Roofs",
     desc: "Our flat roofing solutions provide a seamless, durable surface ideal for residential and commercial properties seeking low-maintenance protection.",
-    img: "https://picsum.photos/seed/flatroof3/600/350",
+    img: img3,
   },
   {
     href: "/services/roof-repair",
     title: "Roof Repair",
     desc: "From minor leaks to major damage, our skilled team restores your roof quickly and precisely to ensure maximum structural security.",
-    img: "https://picsum.photos/seed/repair4/600/350",
+    img: img4,
   },
   {
     href: "/services/chimney-repair",
     title: "Chimney Repair",
     desc: "We specialise in restoring chimney integrity — preventing leaks, improving efficiency, and enhancing overall safety for your home.",
-    img: "https://picsum.photos/seed/chimney5/600/350",
+    img: img1,
   },
   {
     href: "/services/guttering",
     title: "Guttering",
     desc: "Keep your property protected from water damage with our custom gutter installation, cleaning, and maintenance services.",
-    img: "https://picsum.photos/seed/gutter6/600/350",
+    img: img2,
   },
   {
     href: "/services/painting",
     title: "Painting Service",
     desc: "Professional interior and exterior painting that transforms your space with premium paints, meticulous prep, and a flawless finish.",
-    img: "https://picsum.photos/seed/painting7/600/350",
+    img: img4,
   },
   {
     href: "/services/tiling",
     title: "Tiling Installation",
     desc: "Expert tiling for kitchens, bathrooms, floors, and commercial spaces — all tile types, perfectly aligned and sealed.",
-    img: "https://picsum.photos/seed/tiling8/600/350",
+    img: img6,
   },
 ];
 
@@ -404,8 +422,9 @@ function TestimonialsSection() {
     <section
       className="py-20 px-6 relative"
       style={{
-        background:
-          "linear-gradient(to right, rgba(10,20,35,0.88) 0%, rgba(10,20,35,0.75) 100%), url('https://picsum.photos/seed/rooftop88/1600/700') center/cover no-repeat",
+        backgroundImage: `linear-gradient(to right, rgba(10,20,35,0.88) 0%, rgba(10,20,35,0.75) 100%), url('${img3}')`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
       }}
     >
       <div className="max-w-7xl mx-auto">

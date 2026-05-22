@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Tiling Installation Service | WK Roofbuild",
@@ -51,16 +52,15 @@ export default function TilingServicePage() {
             </div>
           </div>
 
-          {/* Icon */}
-          <div className="shrink-0">
-            <div
-              className="w-52 h-52 rounded-3xl flex items-center justify-center"
-              style={{ backgroundColor: "rgba(232,130,12,0.15)", border: "2px solid rgba(232,130,12,0.3)" }}
-            >
-              <svg className="w-24 h-24" style={{ color: "#FF5A1A" }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M4 5a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1V5zm10 0a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1V5zM4 15a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1v-4zm10 0a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z" />
-              </svg>
-            </div>
+          {/* Kitchen tiling image */}
+          <div className="shrink-0 relative rounded-2xl overflow-hidden w-full max-w-sm" style={{ height: "280px" }}>
+            <Image
+              src="/WhatsApp%20Image%202026-05-21%20at%209.01.04%20PM%20(1).jpeg"
+              alt="Kitchen tiling"
+              fill
+              className="object-cover"
+              sizes="400px"
+            />
           </div>
         </div>
       </section>

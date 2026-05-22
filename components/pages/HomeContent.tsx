@@ -3,10 +3,12 @@ import Image from "next/image";
 import FAQSection from "@/components/FAQSection";
 
 const img1 = "/WhatsApp%20Image%202026-05-18%20at%206.12.54%20PM.jpeg";
-const img2 = "/WhatsApp%20Image%202026-05-18%20at%206.19.42%20PM.jpeg";
-const img3 = "/May%2018%2C%202026%2C%2006_40_29%20PM.png";
 const img4 = "/WhatsApp%20Image%202026-05-18%20at%209.29.46%20PM.jpeg";
 const img6 = "/WhatsApp%20Image%202026-05-19%20at%207.56.15%20PM.jpeg";
+const imgRoofHouse = "/WhatsApp%20Image%202026-05-21%20at%209.00.24%20PM.jpeg";
+const imgRoofWorker = "/WhatsApp%20Image%202026-05-21%20at%209.01.04%20PM.jpeg";
+const imgKitchen = "/WhatsApp%20Image%202026-05-21%20at%209.01.04%20PM%20(1).jpeg";
+const imgPainting = "/WhatsApp%20Image%202026-05-21%20at%209.03.31%20PM.jpeg";
 const heroVideo = "/WhatsApp%20Video%202026-05-18%20at%206.12.27%20PM.mp4";
 
 /* ─── HERO ───────────────────────────────────────────────────── */
@@ -79,13 +81,13 @@ function AboutSection() {
 
         <div className="grid grid-cols-2 gap-3">
           <div className="relative rounded overflow-hidden row-span-2" style={{ height: "380px" }}>
-            <Image src={img1} alt="Our roofing work" fill className="object-cover" sizes="200px" />
+            <Image src={imgRoofHouse} alt="Roofing project" fill className="object-cover object-center" sizes="300px" />
           </div>
           <div className="relative rounded overflow-hidden" style={{ height: "183px" }}>
-            <Image src={img2} alt="Roofing project" fill className="object-cover" sizes="200px" />
+            <Image src={img6} alt="Tiling installation" fill className="object-cover object-center" sizes="300px" />
           </div>
           <div className="relative rounded overflow-hidden" style={{ height: "183px" }}>
-            <Image src={img4} alt="Completed roof" fill className="object-cover" sizes="200px" />
+            <Image src={img4} alt="Chimney repair" fill className="object-cover object-top" sizes="300px" />
           </div>
         </div>
 
@@ -179,7 +181,7 @@ function WhySection() {
           </div>
           <div className="overflow-hidden rounded-lg relative" style={{ height: "256px" }}>
             <Image
-              src={img3}
+              src={imgRoofWorker}
               alt="Our professional roofing work"
               fill
               className="object-cover"
@@ -212,49 +214,64 @@ const ALL_SERVICES = [
     href: "/services/roofing",
     title: "Roofing",
     desc: "Protect your property with expertly crafted roofing designed to withstand the elements while enhancing exterior style and value.",
-    img: img1,
+    img: imgRoofHouse,
+    pos: "center",
   },
   {
     href: "/services/new-roofs",
     title: "New Roofs",
     desc: "Upgrade your home with a premium new roof built for long-lasting performance, improved energy efficiency, and modern visual appeal.",
-    img: img2,
+    img: "/new-Roof-768x510.jpeg",
+    pos: "center",
   },
   {
     href: "/services/flat-roofs",
     title: "Flat Roofs",
     desc: "Our flat roofing solutions provide a seamless, durable surface ideal for residential and commercial properties seeking low-maintenance protection.",
-    img: img3,
+    img: imgRoofWorker,
+    pos: "center",
   },
   {
     href: "/services/roof-repair",
     title: "Roof Repair",
     desc: "From minor leaks to major damage, our skilled team restores your roof quickly and precisely to ensure maximum structural security.",
-    img: img4,
+    img: img1,
+    pos: "center top",
   },
   {
     href: "/services/chimney-repair",
     title: "Chimney Repair",
     desc: "We specialise in restoring chimney integrity — preventing leaks, improving efficiency, and enhancing overall safety for your home.",
-    img: img1,
+    img: img4,
+    pos: "center top",
   },
   {
     href: "/services/guttering",
     title: "Guttering",
     desc: "Keep your property protected from water damage with our custom gutter installation, cleaning, and maintenance services.",
-    img: img2,
+    img: "/guttering-roof-768x510.jpeg",
+    pos: "center top",
   },
   {
     href: "/services/painting",
     title: "Painting Service",
     desc: "Professional interior and exterior painting that transforms your space with premium paints, meticulous prep, and a flawless finish.",
-    img: img4,
+    img: imgPainting,
+    pos: "center",
   },
   {
     href: "/services/tiling",
     title: "Tiling Installation",
-    desc: "Expert tiling for kitchens, bathrooms, floors, and commercial spaces — all tile types, perfectly aligned and sealed.",
+    desc: "Expert tiling for bathrooms, floors, walls, and commercial spaces — all tile types, perfectly aligned and sealed.",
     img: img6,
+    pos: "center",
+  },
+  {
+    href: "/services/tiling",
+    title: "Kitchen Tiling",
+    desc: "Beautiful kitchen tile installations for splashbacks, walls, and floors. Durable, stylish finishes that transform your kitchen.",
+    img: imgKitchen,
+    pos: "center",
   },
 ];
 
@@ -279,6 +296,7 @@ function ServicesSection() {
                   alt={svc.title}
                   fill
                   className="object-cover"
+                  style={{ objectPosition: svc.pos }}
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>
@@ -400,7 +418,7 @@ function TestimonialsSection() {
     <section
       className="py-20 px-6 relative"
       style={{
-        backgroundImage: `linear-gradient(to right, rgba(10,20,35,0.88) 0%, rgba(10,20,35,0.75) 100%), url('${img3}')`,
+        backgroundImage: `linear-gradient(to right, rgba(10,20,35,0.88) 0%, rgba(10,20,35,0.75) 100%), url('${imgRoofHouse}')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}

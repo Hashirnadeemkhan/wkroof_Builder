@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { prisma } from "@/lib/prisma";
 
 export const metadata: Metadata = {
   title: "Blog | WK Roofbuild",
   description: "Tips, guides, and news about roofing, painting, and tiling from the WK Roofbuild team in London.",
 };
 
-type Post = { id: number; title: string; slug: string; excerpt: string | null; coverImage: string | null; createdAt: string };
+type Post = { id: number; title: string; slug: string; excerpt: string | null; coverImage: string | null; createdAt: Date };
 
 async function getPosts(): Promise<Post[]> {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/api/blog`, {
-      cache: "no-store",
+    return await prisma.blogPost.findMany({
+      orderBy: { createdAt: "desc" },
+      select: { id: true, title: true, slug: true, excerpt: true, coverImage: true, createdAt: true },
     });
-    if (!res.ok) return [];
-    return res.json();
   } catch {
     return [];
   }

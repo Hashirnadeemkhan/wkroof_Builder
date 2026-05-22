@@ -28,7 +28,9 @@ export default function NewRoofsPage() {
               <span style={{ color: "#FF5A1A" }}>New Roofs</span>
             </div>
           </div>
-          <Image src="https://picsum.photos/seed/newroof2/600/400" alt="New Roofs" width={600} height={400} className="rounded-xl w-full max-w-md object-cover" style={{ height: "300px" }} />
+          <div className="relative rounded-xl overflow-hidden w-full max-w-md shrink-0" style={{ height: "300px" }}>
+            <Image src="/new-Roof-768x510.jpeg" alt="New Roofs" fill className="object-cover object-center" sizes="448px" />
+          </div>
         </div>
       </section>
 

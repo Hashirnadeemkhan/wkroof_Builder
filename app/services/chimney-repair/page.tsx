@@ -28,7 +28,9 @@ export default function ChimneyRepairPage() {
               <span style={{ color: "#FF5A1A" }}>Chimney Repair</span>
             </div>
           </div>
-          <Image src="https://picsum.photos/seed/chimney5/600/400" alt="Chimney Repair" width={600} height={400} className="rounded-xl w-full max-w-md object-cover" style={{ height: "300px" }} />
+          <div className="relative rounded-xl overflow-hidden w-full max-w-md shrink-0" style={{ height: "300px" }}>
+            <Image src="/WhatsApp%20Image%202026-05-18%20at%209.29.46%20PM.jpeg" alt="Chimney Repair" fill className="object-cover object-top" sizes="448px" />
+          </div>
         </div>
       </section>
 

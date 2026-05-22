@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "About Us | WK Roofbuild",
@@ -33,26 +34,34 @@ export default function AboutPage() {
       {/* Story */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 items-center">
-          <div
-            className="rounded-2xl flex items-center justify-center py-20"
-            style={{ background: "linear-gradient(135deg, #1B2A41, #2a4060)" }}
-          >
-            <div className="text-center px-8">
-              <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: "#FF5A1A" }}>
-                <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                </svg>
-              </div>
-              <p className="text-5xl font-extrabold text-white">10+</p>
-              <p style={{ color: "#FF5A1A" }} className="font-semibold mt-1">Years in Business</p>
-              <div className="grid grid-cols-2 gap-4 mt-8">
-                {[["500+", "Projects"], ["300+", "Clients"], ["100%", "Insured"], ["24/7", "Available"]].map(([n, l]) => (
-                  <div key={l} className="rounded-xl p-3 text-center" style={{ backgroundColor: "rgba(255,255,255,0.06)" }}>
-                    <p className="text-2xl font-bold text-white">{n}</p>
-                    <p className="text-xs text-gray-400 mt-1">{l}</p>
-                  </div>
-                ))}
-              </div>
+          <div className="grid grid-cols-2 gap-3">
+            {/* Team photo full width so all 3 people are visible */}
+            <div className="col-span-2 relative rounded-xl overflow-hidden" style={{ height: "310px" }}>
+              <Image
+                src="/WhatsApp%20Image%202026-05-21%20at%209.24.10%20PM.jpeg"
+                alt="WK Roofbuild team"
+                fill
+                className="object-cover object-top"
+                sizes="600px"
+              />
+            </div>
+            <div className="relative rounded-xl overflow-hidden" style={{ height: "160px" }}>
+              <Image
+                src="/WhatsApp%20Image%202026-05-21%20at%209.00.24%20PM.jpeg"
+                alt="Roofing project"
+                fill
+                className="object-cover object-center"
+                sizes="300px"
+              />
+            </div>
+            <div className="relative rounded-xl overflow-hidden" style={{ height: "160px" }}>
+              <Image
+                src="/WhatsApp%20Image%202026-05-21%20at%209.01.03%20PM.jpeg"
+                alt="Roofing team at work"
+                fill
+                className="object-cover object-top"
+                sizes="300px"
+              />
             </div>
           </div>
 

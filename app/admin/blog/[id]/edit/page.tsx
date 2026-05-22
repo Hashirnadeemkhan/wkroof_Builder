@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation";
 import Link from "next/link";
+import { UploadButton } from "@/lib/uploadthing";
 
 function slugify(text: string) {
   return text.toLowerCase().replace(/[^a-z0-9\s-]/g, "").trim().replace(/\s+/g, "-");
@@ -12,6 +13,7 @@ export default function EditBlogPost() {
   const { id } = useParams<{ id: string }>();
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
+  const [uploading, setUploading] = useState(false);
   const [error, setError] = useState("");
   const [form, setForm] = useState({ title: "", slug: "", excerpt: "", coverImage: "", content: "" });
 
@@ -92,15 +94,49 @@ export default function EditBlogPost() {
           </div>
         </div>
 
+        {/* Cover Image */}
         <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
           <h2 className="font-bold text-sm mb-4" style={{ color: "#1B2A41" }}>Cover Image</h2>
-          <input type="url" value={form.coverImage} onChange={(e) => set("coverImage", e.target.value)}
-            placeholder="https://example.com/image.jpg"
-            className="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-orange-400" />
-          {form.coverImage && (
-            <div className="mt-3 rounded-lg overflow-hidden border border-gray-200">
+
+          {form.coverImage ? (
+            <div className="space-y-3">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={form.coverImage} alt="Cover preview" className="w-full h-40 object-cover" />
+              <img src={form.coverImage} alt="Cover" className="w-full h-48 object-cover rounded-lg border border-gray-200" />
+              <button type="button" onClick={() => set("coverImage", "")} className="text-xs text-red-500 hover:text-red-700 font-semibold">
+                × Remove image
+              </button>
+            </div>
+          ) : (
+            <div className="border-2 border-dashed border-gray-200 rounded-lg p-6 text-center">
+              <svg className="w-10 h-10 text-gray-300 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <p className="text-sm text-gray-400 mb-4">Apni computer se image upload karein</p>
+              <UploadButton
+                endpoint="blogImage"
+                onUploadBegin={() => setUploading(true)}
+                onClientUploadComplete={(res) => {
+                  setUploading(false);
+                  const url = res?.[0]?.ufsUrl || (res?.[0] as any)?.serverData?.url || res?.[0]?.url;
+                  if (url) set("coverImage", url);
+                }}
+                onUploadError={() => {
+                  setUploading(false);
+                  setError("Image upload fail hua. Dobara koshish karein.");
+                }}
+                appearance={{
+                  button: {
+                    backgroundColor: "#FF5A1A",
+                    color: "white",
+                    fontWeight: "bold",
+                    fontSize: "13px",
+                    borderRadius: "8px",
+                    padding: "10px 20px",
+                  },
+                  allowedContent: { display: "none" },
+                }}
+                content={{ button: uploading ? "Uploading…" : "Image Choose Karein" }}
+              />
             </div>
           )}
         </div>
@@ -108,12 +144,12 @@ export default function EditBlogPost() {
         <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
           <h2 className="font-bold text-sm mb-4" style={{ color: "#1B2A41" }}>Blog Content *</h2>
           <textarea value={form.content} onChange={(e) => set("content", e.target.value)} rows={16} required
-            className="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-orange-400 resize-y font-mono" />
+            className="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-orange-400 resize-y" />
         </div>
 
         <div className="flex items-center justify-end gap-4">
           <Link href="/admin/blog" className="px-6 py-3 rounded-lg text-sm font-semibold text-gray-600 bg-white border border-gray-200 hover:bg-gray-50">Cancel</Link>
-          <button type="submit" disabled={saving}
+          <button type="submit" disabled={saving || uploading}
             className="px-8 py-3 rounded-lg text-sm font-bold text-white disabled:opacity-60"
             style={{ backgroundColor: "#FF5A1A" }}>
             {saving ? "Saving…" : "Save Changes"}

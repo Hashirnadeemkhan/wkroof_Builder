@@ -1,16 +1,13 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { prisma } from "@/lib/prisma";
 
-type Post = { id: number; title: string; slug: string; excerpt: string | null; coverImage: string | null; content: string; createdAt: string };
+export const dynamic = "force-dynamic";
 
-async function getPost(slug: string): Promise<Post | null> {
+async function getPost(slug: string) {
   try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/api/blog/${slug}`,
-      { cache: "no-store" }
-    );
-    if (!res.ok) return null;
-    return res.json();
+    const decoded = decodeURIComponent(slug);
+    return await prisma.blogPost.findUnique({ where: { slug: decoded } });
   } catch {
     return null;
   }

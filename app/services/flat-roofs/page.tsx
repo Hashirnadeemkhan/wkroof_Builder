@@ -28,7 +28,9 @@ export default function FlatRoofsPage() {
               <span style={{ color: "#FF5A1A" }}>Flat Roofs</span>
             </div>
           </div>
-          <Image src="https://picsum.photos/seed/flatroof3/600/400" alt="Flat Roofs" width={600} height={400} className="rounded-xl w-full max-w-md object-cover" style={{ height: "300px" }} />
+          <div className="relative rounded-xl overflow-hidden w-full max-w-md shrink-0" style={{ height: "300px" }}>
+            <Image src="/WhatsApp%20Image%202026-05-21%20at%209.01.04%20PM.jpeg" alt="Flat Roofs" fill className="object-cover object-center" sizes="448px" />
+          </div>
         </div>
       </section>
 

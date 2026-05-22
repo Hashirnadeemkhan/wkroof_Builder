@@ -10,34 +10,154 @@ export const metadata: Metadata = {
 
 const galleryItems = [
   {
+    src: "/WhatsApp%20Image%202026-05-21%20at%209.24.10%20PM.jpeg",
+    alt: "WK Roofbuild team",
+    caption: "WK Roofbuild Team",
+    pos: "top",
+  },
+  {
+    src: "/WhatsApp%20Image%202026-05-21%20at%209.00.24%20PM.jpeg",
+    alt: "Completed roofing project on red brick house",
+    caption: "Roofing Project",
+    pos: "center",
+  },
+  {
+    src: "/WhatsApp%20Image%202026-05-21%20at%209.01.03%20PM.jpeg",
+    alt: "WK Roofbuild team working on a roof",
+    caption: "Team at Work",
+    pos: "top",
+  },
+  {
+    src: "/WhatsApp%20Image%202026-05-21%20at%209.01.04%20PM.jpeg",
+    alt: "Worker laying slate tiles on roof",
+    caption: "Slate Roof Installation",
+    pos: "center",
+  },
+  {
+    src: "/new-Roof-768x510.jpeg",
+    alt: "New roof installation on brick house",
+    caption: "New Roof Installation",
+    pos: "center",
+  },
+  {
+    src: "/guttering-roof-768x510.jpeg",
+    alt: "Guttering installation on house",
+    caption: "Guttering Installation",
+    pos: "top",
+  },
+  {
+    src: "/WhatsApp%20Image%202026-05-21%20at%209.01.04%20PM%20(1).jpeg",
+    alt: "Kitchen tiling with white metro tiles",
+    caption: "Kitchen Tiling",
+    pos: "center",
+  },
+  {
+    src: "/WhatsApp%20Image%202026-05-21%20at%209.03.31%20PM.jpeg",
+    alt: "Interior painting service",
+    caption: "Interior Painting",
+    pos: "center",
+  },
+  {
     src: "/WhatsApp%20Image%202026-05-18%20at%206.12.54%20PM.jpeg",
-    alt: "Roofing project completed by WK Roofbuild",
+    alt: "Roofing installation by WK Roofbuild",
     caption: "Roofing Installation",
+    pos: "center",
   },
   {
     src: "/WhatsApp%20Image%202026-05-18%20at%206.19.42%20PM.jpeg",
-    alt: "Professional roof work by WK Roofbuild",
+    alt: "Roof repair and restoration",
     caption: "Roof Repair & Restoration",
-  },
-  {
-    src: "/May%2018%2C%202026%2C%2006_40_29%20PM.png",
-    alt: "Roofing work in progress",
-    caption: "New Roof Installation",
+    pos: "center",
   },
   {
     src: "/WhatsApp%20Image%202026-05-18%20at%209.29.46%20PM.jpeg",
-    alt: "Completed roofing project",
-    caption: "Quality Craftsmanship",
-  },
-  {
-    src: "/WhatsApp%20Image%202026-05-19%20at%207.56.14%20PM.jpeg",
-    alt: "Premium bathroom tiling by WK Roofbuild",
-    caption: "Luxury Bathroom Tiling",
+    alt: "Chimney repair and repointing",
+    caption: "Chimney Repair",
+    pos: "top",
   },
   {
     src: "/WhatsApp%20Image%202026-05-19%20at%207.56.15%20PM.jpeg",
-    alt: "Glass shower enclosure with marble tiling",
-    caption: "Marble Tile Installation",
+    alt: "Luxury bathroom tiling",
+    caption: "Bathroom Tiling",
+    pos: "center",
+  },
+  {
+    src: "/WhatsApp%20Image%202026-05-21%20at%209.37.16%20PM.jpeg",
+    alt: "Roof batten and membrane work in progress",
+    caption: "Roof Batten & Membrane",
+    pos: "top",
+  },
+  {
+    src: "/WhatsApp%20Image%202026-05-21%20at%209.37.17%20PM.jpeg",
+    alt: "Completed slate roof aerial view",
+    caption: "Slate Roof — Aerial View",
+    pos: "top",
+  },
+  {
+    src: "/WhatsApp%20Image%202026-05-21%20at%209.37.17%20PM%20(1).jpeg",
+    alt: "Grey tile roof with Velux skylight",
+    caption: "Tile Roof with Skylight",
+    pos: "center",
+  },
+  {
+    src: "/WhatsApp%20Image%202026-05-21%20at%209.37.17%20PM%20(2).jpeg",
+    alt: "Flat roof installation with scaffold",
+    caption: "Flat Roof Installation",
+    pos: "center",
+  },
+  {
+    src: "/WhatsApp%20Image%202026-05-21%20at%209.37.18%20PM.jpeg",
+    alt: "Red clay tile roof with chimney stack",
+    caption: "Clay Tile Roofing",
+    pos: "center",
+  },
+  {
+    src: "/WhatsApp%20Image%202026-05-21%20at%209.37.18%20PM%20(1).jpeg",
+    alt: "Flat roof deck installation",
+    caption: "Flat Roof Deck",
+    pos: "center",
+  },
+  {
+    src: "/WhatsApp%20Image%202026-05-21%20at%209.37.18%20PM%20(2).jpeg",
+    alt: "Completed flat roof felt installation",
+    caption: "Flat Roof — Completed",
+    pos: "center",
+  },
+  {
+    src: "/WhatsApp%20Image%202026-05-21%20at%209.37.19%20PM.jpeg",
+    alt: "Dormer roof felting and battening",
+    caption: "Dormer Roof Felting",
+    pos: "center",
+  },
+  {
+    src: "/WhatsApp%20Image%202026-05-21%20at%209.37.19%20PM%20(1).jpeg",
+    alt: "Natural slate roof close-up",
+    caption: "Natural Slate Roofing",
+    pos: "top",
+  },
+  {
+    src: "/WhatsApp%20Image%202026-05-21%20at%209.37.19%20PM%20(2).jpeg",
+    alt: "Roof repair on terraced house extension",
+    caption: "Roof Repair",
+    pos: "top",
+  },
+  {
+    src: "/WhatsApp%20Image%202026-05-21%20at%209.37.20%20PM.jpeg",
+    alt: "Flat roof completion",
+    caption: "Flat Roof",
+    pos: "center",
+  },
+  {
+    src: "/WhatsApp%20Image%202026-05-21%20at%209.37.20%20PM%20(1).jpeg",
+    alt: "Red clay tile roof viewed from above",
+    caption: "Clay Tile Roof — Top View",
+    pos: "top",
+  },
+  {
+    src: "/WhatsApp%20Image%202026-05-21%20at%209.37.20%20PM%20(2).jpeg",
+    alt: "White GRP flat roof with chimneys",
+    caption: "GRP Flat Roof",
+    pos: "top",
   },
 ];
 
@@ -108,6 +228,7 @@ export default function GalleryPage() {
                   alt={item.alt}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  style={{ objectPosition: item.pos }}
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
                 {/* Hover overlay with caption */}

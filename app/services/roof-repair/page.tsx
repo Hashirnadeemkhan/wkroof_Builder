@@ -28,7 +28,9 @@ export default function RoofRepairPage() {
               <span style={{ color: "#FF5A1A" }}>Roof Repair</span>
             </div>
           </div>
-          <Image src="https://picsum.photos/seed/repair4/600/400" alt="Roof Repair" width={600} height={400} className="rounded-xl w-full max-w-md object-cover" style={{ height: "300px" }} />
+          <div className="relative rounded-xl overflow-hidden w-full max-w-md shrink-0" style={{ height: "300px" }}>
+            <Image src="/WhatsApp%20Image%202026-05-21%20at%209.01.03%20PM.jpeg" alt="Roof Repair" fill className="object-cover object-top" sizes="448px" />
+          </div>
         </div>
       </section>
 

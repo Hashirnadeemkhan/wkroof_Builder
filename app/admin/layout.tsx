@@ -11,9 +11,14 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           </div>
           <span className="text-white font-bold text-lg">WK Roofbuild — Admin</span>
         </div>
-        <a href="/" className="text-gray-400 hover:text-white text-sm transition-colors">
-          ← Back to Website
-        </a>
+        <div className="flex items-center gap-4">
+          <a href="/" className="text-gray-400 hover:text-white text-sm transition-colors">
+            ← Back to Website
+          </a>
+          <a href="/api/admin-auth" className="px-3 py-1.5 rounded text-xs font-bold text-white bg-red-600 hover:bg-red-700 transition-colors">
+            Logout
+          </a>
+        </div>
       </header>
 
       {/* Sidebar + content */}

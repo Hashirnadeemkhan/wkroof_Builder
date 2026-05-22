@@ -10,7 +10,14 @@ export const metadata: Metadata = {
 export default function RoofingPage() {
   return (
     <>
-      <section className="py-24 px-6" style={{ background: "linear-gradient(135deg,#131F31,#1B2A41)" }}>
+      <section
+        className="py-24 px-6 relative"
+        style={{
+          backgroundImage: "linear-gradient(to right, rgba(10,20,35,0.90) 0%, rgba(10,20,35,0.70) 100%), url('/WhatsApp%20Image%202026-05-21%20at%209.01.03%20PM.jpeg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center top",
+        }}
+      >
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
           <div className="flex-1 text-center lg:text-left">
             <span className="label-orange">Our Services</span>
@@ -28,28 +35,55 @@ export default function RoofingPage() {
               <span style={{ color: "#FF5A1A" }}>Roofing</span>
             </div>
           </div>
-          <Image src="https://picsum.photos/seed/roofing1/600/400" alt="Roofing" width={600} height={400} className="rounded-xl w-full max-w-md object-cover" style={{ height: "300px" }} />
+          <div className="shrink-0 w-full max-w-md grid grid-cols-2 gap-3">
+            <div className="col-span-2 relative rounded-xl overflow-hidden" style={{ height: "210px" }}>
+              <Image src="/WhatsApp%20Image%202026-05-21%20at%209.00.24%20PM.jpeg" alt="Roofing" fill className="object-cover object-center" sizes="448px" />
+            </div>
+            <div className="relative rounded-xl overflow-hidden" style={{ height: "130px" }}>
+              <Image src="/WhatsApp%20Image%202026-05-18%20at%206.12.54%20PM.jpeg" alt="Roofer at work" fill className="object-cover object-center" sizes="224px" />
+            </div>
+            <div className="relative rounded-xl overflow-hidden" style={{ height: "130px" }}>
+              <Image src="/WhatsApp%20Image%202026-05-21%20at%209.01.04%20PM.jpeg" alt="Slate roofing" fill className="object-cover object-center" sizes="224px" />
+            </div>
+          </div>
         </div>
       </section>
 
       <section className="py-20 px-6 bg-white">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 items-start">
+        <div className="max-w-7xl mx-auto">
+          <div className="relative rounded-2xl overflow-hidden mb-14" style={{ height: "380px" }}>
+            <Image
+              src="/WhatsApp%20Image%202026-05-21%20at%209.00.24%20PM.jpeg"
+              alt="Professional roofing services"
+              fill
+              className="object-cover object-center"
+              sizes="100vw"
+            />
+            <div className="absolute inset-0 flex items-end p-8" style={{ background: "linear-gradient(to top, rgba(10,20,35,0.75) 0%, transparent 60%)" }}>
+              <div>
+                <span className="label-orange">Service Overview</span>
+                <h2 className="text-3xl font-bold text-white mt-1">Professional Roofing Services</h2>
+              </div>
+            </div>
+          </div>
+        <div className="grid lg:grid-cols-2 gap-14 items-start">
           <div>
-            <span className="label-orange">Service Overview</span>
-            <h2 className="text-3xl font-bold mb-5" style={{ color: "#1B2A41" }}>Professional Roofing Services</h2>
             <p className="text-gray-600 leading-relaxed mb-4">
               A strong, well-installed roof is the most important protective element of any building. At WK Roofbuild Ltd, we deliver professional roofing solutions for residential and commercial properties across London.
             </p>
             <p className="text-gray-600 leading-relaxed mb-8">
               Whether you need a full re-roof, repairs, or a new installation, our skilled team uses premium materials and proven techniques to ensure a long-lasting result you can rely on for decades.
             </p>
-            <div className="grid sm:grid-cols-2 gap-3">
+            <div className="grid sm:grid-cols-2 gap-3 mb-6">
               {["Full roof installation","Re-roofing & replacement","Tile & slate roofing","Felt & flat roofing","Ridge & hip tiles","Lead flashing","Roof inspections","Emergency repairs"].map(i => (
                 <div key={i} className="flex items-center gap-2 text-sm text-gray-700">
                   <svg className="w-4 h-4 shrink-0" style={{ color: "#FF5A1A" }} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" /></svg>
                   {i}
                 </div>
               ))}
+            </div>
+            <div className="relative rounded-xl overflow-hidden" style={{ height: "260px" }}>
+              <Image src="/WhatsApp%20Image%202026-05-21%20at%209.01.03%20PM.jpeg" alt="WK Roofbuild team on site" fill className="object-cover object-top" sizes="(max-width: 1024px) 100vw, 50vw" />
             </div>
           </div>
           <div className="space-y-4">
@@ -65,6 +99,7 @@ export default function RoofingPage() {
               </div>
             ))}
           </div>
+        </div>
         </div>
       </section>
 

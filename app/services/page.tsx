@@ -12,49 +12,64 @@ const services = [
     href: "/services/roofing",
     title: "Roofing",
     desc: "Protect your property with expertly crafted roofing designed to withstand the elements while enhancing exterior style and value.",
-    img: "https://picsum.photos/seed/roofing1/600/350",
+    img: "/WhatsApp%20Image%202026-05-21%20at%209.00.24%20PM.jpeg",
+    pos: "center",
   },
   {
     href: "/services/new-roofs",
     title: "New Roofs",
     desc: "Upgrade your home with a premium new roof built for long-lasting performance, improved energy efficiency, and modern visual appeal.",
-    img: "https://picsum.photos/seed/newroof2/600/350",
+    img: "/new-Roof-768x510.jpeg",
+    pos: "center",
   },
   {
     href: "/services/flat-roofs",
     title: "Flat Roofs",
     desc: "Our flat roofing solutions provide a seamless, durable surface ideal for residential and commercial properties seeking low-maintenance protection.",
-    img: "https://picsum.photos/seed/flatroof3/600/350",
+    img: "/WhatsApp%20Image%202026-05-21%20at%209.01.04%20PM.jpeg",
+    pos: "center",
   },
   {
     href: "/services/roof-repair",
     title: "Roof Repair",
     desc: "From minor leaks to major damage, our skilled team restores your roof quickly and precisely to ensure maximum structural security.",
-    img: "https://picsum.photos/seed/repair4/600/350",
+    img: "/WhatsApp%20Image%202026-05-18%20at%206.12.54%20PM.jpeg",
+    pos: "center top",
   },
   {
     href: "/services/chimney-repair",
     title: "Chimney Repair",
     desc: "We specialise in restoring chimney integrity — preventing leaks, improving efficiency, and enhancing overall safety for your home.",
-    img: "https://picsum.photos/seed/chimney5/600/350",
+    img: "/WhatsApp%20Image%202026-05-18%20at%209.29.46%20PM.jpeg",
+    pos: "center top",
   },
   {
     href: "/services/guttering",
     title: "Guttering",
     desc: "Keep your property protected from water damage with our custom gutter installation, cleaning, and maintenance services.",
-    img: "https://picsum.photos/seed/gutter6/600/350",
+    img: "/guttering-roof-768x510.jpeg",
+    pos: "center top",
   },
   {
     href: "/services/painting",
     title: "Painting Service",
     desc: "Professional interior and exterior painting that transforms your space with premium paints, meticulous prep, and a flawless finish.",
-    img: "https://picsum.photos/seed/painting7/600/350",
+    img: "/WhatsApp%20Image%202026-05-21%20at%209.03.31%20PM.jpeg",
+    pos: "center",
   },
   {
     href: "/services/tiling",
     title: "Tiling Installation",
-    desc: "Expert tiling for kitchens, bathrooms, floors, and commercial spaces — all tile types, perfectly aligned and sealed.",
-    img: "https://picsum.photos/seed/tiling8/600/350",
+    desc: "Expert tiling for bathrooms, floors, walls, and commercial spaces — all tile types, perfectly aligned and sealed.",
+    img: "/WhatsApp%20Image%202026-05-19%20at%207.56.15%20PM.jpeg",
+    pos: "center",
+  },
+  {
+    href: "/services/tiling",
+    title: "Kitchen Tiling",
+    desc: "Beautiful kitchen tile installations for splashbacks, walls, and floors. Durable, stylish finishes that transform your kitchen.",
+    img: "/WhatsApp%20Image%202026-05-21%20at%209.01.04%20PM%20(1).jpeg",
+    pos: "center",
   },
 ];
 
@@ -95,14 +110,16 @@ export default function ServicesPage() {
                 className="border border-gray-200 bg-white service-card"
               >
                 {/* Photo */}
-                <Image
-                  src={svc.img}
-                  alt={svc.title}
-                  width={600}
-                  height={350}
-                  className="w-full object-cover"
-                  style={{ height: "200px" }}
-                />
+                <div className="relative w-full" style={{ height: "200px" }}>
+                  <Image
+                    src={svc.img}
+                    alt={svc.title}
+                    fill
+                    className="object-cover"
+                    style={{ objectPosition: svc.pos }}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                </div>
                 {/* Content */}
                 <div className="p-5">
                   <h3 className="text-lg font-bold mb-2" style={{ color: "#1B2A41" }}>

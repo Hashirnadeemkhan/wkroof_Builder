@@ -28,7 +28,9 @@ export default function GutteringPage() {
               <span style={{ color: "#FF5A1A" }}>Guttering</span>
             </div>
           </div>
-          <Image src="https://picsum.photos/seed/gutter6/600/400" alt="Guttering" width={600} height={400} className="rounded-xl w-full max-w-md object-cover" style={{ height: "300px" }} />
+          <div className="relative rounded-xl overflow-hidden w-full max-w-md shrink-0" style={{ height: "300px" }}>
+            <Image src="/guttering-roof-768x510.jpeg" alt="Guttering" fill className="object-cover object-top" sizes="448px" />
+          </div>
         </div>
       </section>
 

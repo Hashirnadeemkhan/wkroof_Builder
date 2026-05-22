@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import FAQSection from "@/components/FAQSection";
 
-const img1 = "/WhatsApp%20Image%202026-05-18%20at%206.12.54%20PM.jpeg";
 const img4 = "/WhatsApp%20Image%202026-05-18%20at%209.29.46%20PM.jpeg";
 const img6 = "/WhatsApp%20Image%202026-05-19%20at%207.56.15%20PM.jpeg";
 const imgRoofHouse = "/WhatsApp%20Image%202026-05-21%20at%209.00.24%20PM.jpeg";

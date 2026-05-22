@@ -10,7 +10,14 @@ export const metadata: Metadata = {
 export default function FlatRoofsPage() {
   return (
     <>
-      <section className="py-24 px-6" style={{ background: "linear-gradient(135deg,#131F31,#1B2A41)" }}>
+      <section
+        className="py-24 px-6 relative"
+        style={{
+          backgroundImage: "linear-gradient(to right, rgba(10,20,35,0.92) 0%, rgba(10,20,35,0.60) 100%), url('/flatroof.jpeg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
           <div className="flex-1 text-center lg:text-left">
             <span className="label-orange">Our Services</span>
@@ -28,8 +35,22 @@ export default function FlatRoofsPage() {
               <span style={{ color: "#FF5A1A" }}>Flat Roofs</span>
             </div>
           </div>
-          <div className="relative rounded-xl overflow-hidden w-full max-w-md shrink-0" style={{ height: "300px" }}>
-            <Image src="/WhatsApp%20Image%202026-05-21%20at%209.01.04%20PM.jpeg" alt="Flat Roofs" fill className="object-cover object-center" sizes="448px" />
+          <div className="shrink-0 w-full max-w-xl">
+            <div className="rounded-2xl overflow-hidden relative" style={{ height: "420px", boxShadow: "0 25px 60px rgba(0,0,0,0.5)" }}>
+              <Image src="/flatroof.jpeg" alt="Flat Roofs" fill className="object-cover object-center" sizes="600px" />
+              <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(10,20,35,0.80) 0%, transparent 60%)" }} />
+              <div className="absolute bottom-0 left-0 right-0 p-6 flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full flex items-center justify-center shrink-0" style={{ backgroundColor: "#FF5A1A" }}>
+                  <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h7" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-white font-bold leading-tight">WK Roofbuild Ltd</p>
+                  <p className="text-sm leading-tight" style={{ color: "#FF9A6A" }}>London&apos;s Trusted Roofers</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -66,6 +87,23 @@ export default function FlatRoofsPage() {
                 <div><h3 className="font-bold mb-1" style={{ color: "#1B2A41" }}>{c.t}</h3><p className="text-sm text-gray-500 leading-relaxed">{c.d}</p></div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 px-6 bg-white border-t border-gray-100">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-10">
+            <span className="label-orange">Our Work</span>
+            <h2 className="text-3xl font-bold" style={{ color: "#1B2A41" }}>Flat Roof Projects We&apos;re Proud Of</h2>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-5">
+            <div className="relative rounded-2xl overflow-hidden" style={{ height: "320px" }}>
+              <Image src="/flatroof.jpeg" alt="Flat roof completed" fill className="object-cover object-center" sizes="(max-width: 640px) 100vw, 50vw" />
+            </div>
+            <div className="relative rounded-2xl overflow-hidden" style={{ height: "320px" }}>
+              <Image src="/WhatsApp%20Image%202026-05-21%20at%209.37.18%20PM.jpeg" alt="Flat roof installation" fill className="object-cover object-center" sizes="(max-width: 640px) 100vw, 50vw" />
+            </div>
           </div>
         </div>
       </section>

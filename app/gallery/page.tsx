@@ -58,12 +58,6 @@ const galleryItems = [
     pos: "center",
   },
   {
-    src: "/WhatsApp%20Image%202026-05-18%20at%206.12.54%20PM.jpeg",
-    alt: "Roofing installation by WK Roofbuild",
-    caption: "Roofing Installation",
-    pos: "center",
-  },
-  {
     src: "/WhatsApp%20Image%202026-05-18%20at%206.19.42%20PM.jpeg",
     alt: "Roof repair and restoration",
     caption: "Roof Repair & Restoration",
@@ -169,7 +163,7 @@ export default function GalleryPage() {
         className="relative py-20 px-6"
         style={{
           background:
-            "linear-gradient(to right, rgba(10,20,35,0.92) 55%, rgba(10,20,35,0.70) 100%), url('/WhatsApp%20Image%202026-05-18%20at%206.12.54%20PM.jpeg') center/cover no-repeat",
+            "linear-gradient(to right, rgba(10,20,35,0.92) 55%, rgba(10,20,35,0.70) 100%), url('/WhatsApp%20Image%202026-05-21%20at%209.00.24%20PM.jpeg') center/cover no-repeat",
           minHeight: "280px",
           display: "flex",
           alignItems: "center",

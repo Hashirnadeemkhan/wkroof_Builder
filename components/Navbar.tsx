@@ -1,13 +1,26 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 
-const navLinks = [
+const serviceLinks = [
+  { href: "/services/roofing", label: "Roofing" },
+  { href: "/services/new-roofs", label: "New Roofs" },
+  { href: "/services/flat-roofs", label: "Flat Roofs" },
+  { href: "/services/roof-repair", label: "Roof Repair" },
+  { href: "/services/chimney-repair", label: "Chimney Repair" },
+  { href: "/services/guttering", label: "Guttering" },
+  { href: "/services/painting", label: "Painting Service" },
+  { href: "/services/tiling", label: "Tiling Installation" },
+];
+
+const beforeServiceLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Us" },
-  { href: "/services", label: "Services" },
+];
+
+const afterServiceLinks = [
   { href: "/gallery", label: "Gallery" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
@@ -15,12 +28,31 @@ const navLinks = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const pathname = usePathname();
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const isServicesActive = pathname.startsWith("/services");
+
+  function handleServicesEnter() {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setServicesOpen(true);
+  }
+
+  function handleServicesLeave() {
+    closeTimer.current = setTimeout(() => setServicesOpen(false), 120);
+  }
+
+  const linkClass = (href: string) =>
+    `text-sm font-bold uppercase tracking-wider transition-colors ${
+      pathname === href ? "text-[#FF5A1A]" : "text-white hover:text-[#FF5A1A]"
+    }`;
 
   return (
     <header className="sticky top-0 z-50 shadow-md">
 
-      {/* ── Top bar: white + social icons right ── */}
+      {/* ── Top bar ── */}
       <div className="bg-white border-b border-gray-200 py-1.5 px-4">
         <div className="max-w-7xl mx-auto flex justify-end items-center gap-3">
           <a href="#" aria-label="Facebook"
@@ -44,28 +76,68 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* ── Main nav: black bg, full-height orange CTA right ── */}
+      {/* ── Main nav ── */}
       <nav className="bg-black flex items-stretch">
-        {/* Left + center area */}
         <div className="flex-1 flex items-center justify-between px-6 py-0">
 
-          {/* Logo */}
           <Link href="/" className="shrink-0 py-3">
             <Image src="/logo.png" alt="WK Roofbuild Ltd" width={160} height={58} className="object-contain" priority />
           </Link>
 
-          {/* Desktop nav links */}
+          {/* Desktop links: Home, About Us | Services dropdown | Gallery, Blog, Contact */}
           <ul className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => (
+            {beforeServiceLinks.map((link) => (
               <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className={`text-sm font-bold uppercase tracking-wider transition-colors ${
-                    pathname === link.href ? "text-[#FF5A1A]" : "text-white hover:text-[#FF5A1A]"
-                  }`}
+                <Link href={link.href} className={linkClass(link.href)}>{link.label}</Link>
+              </li>
+            ))}
+
+            {/* Services dropdown */}
+            <li
+              className="relative"
+              onMouseEnter={handleServicesEnter}
+              onMouseLeave={handleServicesLeave}
+            >
+              <button
+                className={`flex items-center gap-1 text-sm font-bold uppercase tracking-wider transition-colors ${
+                  isServicesActive ? "text-[#FF5A1A]" : "text-white hover:text-[#FF5A1A]"
+                }`}
+              >
+                Services
+                <svg
+                  className={`w-3.5 h-3.5 transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`}
+                  fill="none" viewBox="0 0 24 24" stroke="currentColor"
                 >
-                  {link.label}
-                </Link>
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+
+              {servicesOpen && (
+                <div
+                  className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-52 bg-white rounded shadow-xl overflow-hidden z-50"
+                  onMouseEnter={handleServicesEnter}
+                  onMouseLeave={handleServicesLeave}
+                >
+                  {serviceLinks.map((s) => (
+                    <Link
+                      key={s.href}
+                      href={s.href}
+                      className={`block px-5 py-2.5 text-sm font-semibold border-b border-gray-100 last:border-0 transition-colors ${
+                        pathname === s.href
+                          ? "text-[#FF5A1A] bg-orange-50"
+                          : "text-[#1B2A41] hover:text-[#FF5A1A] hover:bg-orange-50"
+                      }`}
+                    >
+                      {s.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </li>
+
+            {afterServiceLinks.map((link) => (
+              <li key={link.href}>
+                <Link href={link.href} className={linkClass(link.href)}>{link.label}</Link>
               </li>
             ))}
           </ul>
@@ -88,13 +160,12 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Orange CTA block — full height, flush right */}
+        {/* Orange CTA */}
         <a
           href="tel:07863216381"
           className="hidden lg:flex items-center gap-4 px-8 shrink-0"
           style={{ backgroundColor: "#FF5A1A" }}
         >
-          {/* Chat / phone icon */}
           <svg className="w-9 h-9 text-white opacity-90" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6}
               d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
@@ -110,7 +181,7 @@ export default function Navbar() {
       {open && (
         <div className="lg:hidden bg-black border-t border-gray-800">
           <div className="px-4 py-4 flex flex-col gap-1">
-            {navLinks.map((link) => (
+            {beforeServiceLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -122,6 +193,53 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
+
+            {/* Mobile Services accordion */}
+            <button
+              onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+              className={`flex items-center justify-between py-2.5 px-3 text-sm font-bold uppercase tracking-wider rounded transition-colors ${
+                isServicesActive ? "text-[#FF5A1A]" : "text-white hover:text-[#FF5A1A]"
+              }`}
+            >
+              Services
+              <svg
+                className={`w-4 h-4 transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""}`}
+                fill="none" viewBox="0 0 24 24" stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            {mobileServicesOpen && (
+              <div className="ml-3 flex flex-col gap-0.5 border-l-2 border-[#FF5A1A] pl-3 mb-1">
+                {serviceLinks.map((s) => (
+                  <Link
+                    key={s.href}
+                    href={s.href}
+                    onClick={() => { setOpen(false); setMobileServicesOpen(false); }}
+                    className={`py-2 text-sm font-semibold transition-colors ${
+                      pathname === s.href ? "text-[#FF5A1A]" : "text-gray-300 hover:text-[#FF5A1A]"
+                    }`}
+                  >
+                    {s.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+
+            {afterServiceLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className={`py-2.5 px-3 text-sm font-bold uppercase tracking-wider rounded transition-colors ${
+                  pathname === link.href ? "text-[#FF5A1A]" : "text-white hover:text-[#FF5A1A]"
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+
             <a
               href="tel:07863216381"
               className="mt-3 flex items-center gap-2 px-3 py-3 font-bold text-white text-sm"

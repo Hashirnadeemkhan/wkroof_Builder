@@ -35,15 +35,21 @@ export default function RoofingPage() {
               <span style={{ color: "#FF5A1A" }}>Roofing</span>
             </div>
           </div>
-          <div className="shrink-0 w-full max-w-md grid grid-cols-2 gap-3">
-            <div className="col-span-2 relative rounded-xl overflow-hidden" style={{ height: "210px" }}>
-              <Image src="/WhatsApp%20Image%202026-05-21%20at%209.00.24%20PM.jpeg" alt="Roofing" fill className="object-cover object-center" sizes="448px" />
-            </div>
-            <div className="relative rounded-xl overflow-hidden" style={{ height: "130px" }}>
-              <Image src="/WhatsApp%20Image%202026-05-18%20at%206.12.54%20PM.jpeg" alt="Roofer at work" fill className="object-cover object-center" sizes="224px" />
-            </div>
-            <div className="relative rounded-xl overflow-hidden" style={{ height: "130px" }}>
-              <Image src="/WhatsApp%20Image%202026-05-21%20at%209.01.04%20PM.jpeg" alt="Slate roofing" fill className="object-cover object-center" sizes="224px" />
+          <div className="shrink-0 w-full max-w-xl">
+            <div className="rounded-2xl overflow-hidden relative" style={{ height: "420px", boxShadow: "0 25px 60px rgba(0,0,0,0.5)" }}>
+              <Image src="/WhatsApp%20Image%202026-05-21%20at%209.00.24%20PM.jpeg" alt="Roofing" fill className="object-cover object-center" sizes="600px" />
+              <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(10,20,35,0.80) 0%, transparent 60%)" }} />
+              <div className="absolute bottom-0 left-0 right-0 p-6 flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full flex items-center justify-center shrink-0" style={{ backgroundColor: "#FF5A1A" }}>
+                  <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-white font-bold leading-tight">WK Roofbuild Ltd</p>
+                  <p className="text-sm leading-tight" style={{ color: "#FF9A6A" }}>London&apos;s Trusted Roofers</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

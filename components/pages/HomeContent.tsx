@@ -230,15 +230,15 @@ const ALL_SERVICES = [
     href: "/services/flat-roofs",
     title: "Flat Roofs",
     desc: "Our flat roofing solutions provide a seamless, durable surface ideal for residential and commercial properties seeking low-maintenance protection.",
-    img: imgRoofWorker,
+    img: "/flatroof.jpeg",
     pos: "center",
   },
   {
     href: "/services/roof-repair",
     title: "Roof Repair",
     desc: "From minor leaks to major damage, our skilled team restores your roof quickly and precisely to ensure maximum structural security.",
-    img: img1,
-    pos: "center top",
+    img: imgRoofWorker,
+    pos: "center",
   },
   {
     href: "/services/chimney-repair",

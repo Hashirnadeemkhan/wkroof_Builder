@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Painting Service | WK Roofbuild",
@@ -18,8 +19,12 @@ export default function PaintingServicePage() {
     <>
       {/* Page Banner */}
       <section
-        className="page-banner py-24 px-4"
-        style={{ background: "linear-gradient(135deg, #131F31 0%, #1B2A41 100%)" }}
+        className="page-banner py-24 px-4 relative"
+        style={{
+          backgroundImage: "linear-gradient(to right, rgba(10,20,35,0.92) 0%, rgba(10,20,35,0.60) 100%), url('/WhatsApp%20Image%202026-05-21%20at%209.03.31%20PM.jpeg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
       >
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
           <div className="flex-1 text-center lg:text-left">
@@ -41,7 +46,6 @@ export default function PaintingServicePage() {
                 Contact Us
               </Link>
             </div>
-            {/* Breadcrumb */}
             <div className="flex items-center gap-2 mt-8 text-sm text-gray-500 justify-center lg:justify-start">
               <Link href="/" className="hover:text-orange-400 transition-colors">Home</Link>
               <span>›</span>
@@ -51,15 +55,21 @@ export default function PaintingServicePage() {
             </div>
           </div>
 
-          {/* Icon */}
-          <div className="shrink-0">
-            <div
-              className="w-52 h-52 rounded-3xl flex items-center justify-center"
-              style={{ backgroundColor: "rgba(232,130,12,0.15)", border: "2px solid rgba(232,130,12,0.3)" }}
-            >
-              <svg className="w-24 h-24" style={{ color: "#FF5A1A" }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
-              </svg>
+          <div className="shrink-0 w-full max-w-xl">
+            <div className="rounded-2xl overflow-hidden relative" style={{ height: "420px", boxShadow: "0 25px 60px rgba(0,0,0,0.5)" }}>
+              <Image src="/WhatsApp%20Image%202026-05-21%20at%209.03.31%20PM.jpeg" alt="Painting Service" fill className="object-cover object-center" sizes="600px" />
+              <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(10,20,35,0.80) 0%, transparent 60%)" }} />
+              <div className="absolute bottom-0 left-0 right-0 p-6 flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full flex items-center justify-center shrink-0" style={{ backgroundColor: "#FF5A1A" }}>
+                  <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-white font-bold leading-tight">WK Roofbuild Ltd</p>
+                  <p className="text-sm leading-tight" style={{ color: "#FF9A6A" }}>London&apos;s Trusted Roofers</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -151,6 +161,27 @@ export default function PaintingServicePage() {
         </div>
       </section>
 
+      {/* Showcase Image */}
+      <section className="px-4 pb-4" style={{ backgroundColor: "#F5F7FA", paddingTop: "0" }}>
+        <div className="max-w-7xl mx-auto">
+          <div className="relative rounded-2xl overflow-hidden" style={{ height: "420px" }}>
+            <Image
+              src="/Gemini_Generated_Image_hlvy74hlvy74hlvy.png"
+              alt="Professional interior painting"
+              fill
+              className="object-cover object-center"
+              sizes="100vw"
+            />
+            <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(10,20,35,0.65) 0%, transparent 60%)" }} />
+            <div className="absolute left-0 top-0 bottom-0 flex flex-col justify-center px-10 max-w-md">
+              <span className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "#FF5A1A" }}>Our Painting Work</span>
+              <h3 className="text-2xl md:text-3xl font-extrabold text-white leading-snug mb-4">Flawless Finish — Interior &amp; Exterior</h3>
+              <p className="text-gray-300 text-sm leading-relaxed">Premium paints, meticulous preparation, and a professional team dedicated to transforming your space beautifully.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Why Choose Our Painting Service */}
       <section className="py-20 px-4" style={{ backgroundColor: "#F5F7FA" }}>
         <div className="max-w-7xl mx-auto">
@@ -186,6 +217,24 @@ export default function PaintingServicePage() {
                 <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Work Gallery */}
+      <section className="py-16 px-4 bg-white border-t border-gray-100">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-10">
+            <span className="label-orange">Our Work</span>
+            <h2 className="text-3xl font-bold" style={{ color: "#1B2A41" }}>Painting Projects We&apos;re Proud Of</h2>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-5">
+            <div className="relative rounded-2xl overflow-hidden" style={{ height: "320px" }}>
+              <Image src="/WhatsApp%20Image%202026-05-21%20at%209.03.31%20PM.jpeg" alt="Painting project" fill className="object-cover object-center" sizes="(max-width: 640px) 100vw, 50vw" />
+            </div>
+            <div className="relative rounded-2xl overflow-hidden" style={{ height: "320px" }}>
+              <Image src="/Gemini_Generated_Image_hlvy74hlvy74hlvy.png" alt="Interior painting" fill className="object-cover object-center" sizes="(max-width: 640px) 100vw, 50vw" />
+            </div>
           </div>
         </div>
       </section>

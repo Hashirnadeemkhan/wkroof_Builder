@@ -79,15 +79,17 @@ function AboutSection() {
     <section className="py-20 px-6 bg-white">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 items-center">
 
-        <div className="grid grid-cols-2 gap-3">
-          <div className="relative rounded overflow-hidden row-span-2" style={{ height: "380px" }}>
-            <Image src={imgRoofHouse} alt="Roofing project" fill className="object-cover object-center" sizes="300px" />
+        <div className="flex flex-col gap-3">
+          <div className="relative rounded overflow-hidden w-full" style={{ height: "250px" }}>
+            <Image src={imgRoofHouse} alt="Roofing project" fill className="object-cover object-center" sizes="600px" />
           </div>
-          <div className="relative rounded overflow-hidden" style={{ height: "183px" }}>
-            <Image src={img6} alt="Tiling installation" fill className="object-cover object-center" sizes="300px" />
-          </div>
-          <div className="relative rounded overflow-hidden" style={{ height: "183px" }}>
-            <Image src={img4} alt="Chimney repair" fill className="object-cover object-top" sizes="300px" />
+          <div className="grid grid-cols-2 gap-3">
+            <div className="relative rounded overflow-hidden" style={{ height: "160px" }}>
+              <Image src={img6} alt="Tiling installation" fill className="object-cover object-center" sizes="300px" />
+            </div>
+            <div className="relative rounded overflow-hidden" style={{ height: "160px" }}>
+              <Image src={img4} alt="Chimney repair" fill className="object-cover object-top" sizes="300px" />
+            </div>
           </div>
         </div>
 

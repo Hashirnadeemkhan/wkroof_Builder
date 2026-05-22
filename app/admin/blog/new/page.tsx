@@ -139,7 +139,8 @@ export default function NewBlogPost() {
                 onUploadBegin={() => setUploading(true)}
                 onClientUploadComplete={(res) => {
                   setUploading(false);
-                  const url = res?.[0]?.ufsUrl || (res?.[0] as any)?.serverData?.url || res?.[0]?.url;
+                  const file = res?.[0];
+                  const url = file?.ufsUrl || file?.url;
                   if (url) set("coverImage", url);
                 }}
                 onUploadError={() => {

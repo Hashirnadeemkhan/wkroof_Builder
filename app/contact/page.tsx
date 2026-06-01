@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
   title: "Contact Us | WK Roofbuild",
@@ -98,79 +99,7 @@ export default function ContactPage() {
           </div>
 
           {/* Form */}
-          <div className="rounded-2xl p-8 shadow-sm border border-gray-100" style={{ backgroundColor: "#F5F7FA" }}>
-            <h3 className="text-xl font-bold mb-6" style={{ color: "#1B2A41" }}>Send Us a Message</h3>
-            <form className="space-y-5" action="mailto:wkroofbuild@gmail.com" method="post" encType="text/plain">
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium mb-1.5" style={{ color: "#1B2A41" }}>First Name</label>
-                  <input
-                    type="text"
-                    name="firstname"
-                    placeholder="John"
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm focus:outline-none focus:border-orange-400 bg-white"
-                    required
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium mb-1.5" style={{ color: "#1B2A41" }}>Last Name</label>
-                  <input
-                    type="text"
-                    name="lastname"
-                    placeholder="Smith"
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm focus:outline-none focus:border-orange-400 bg-white"
-                    required
-                  />
-                </div>
-              </div>
-              <div>
-                <label className="block text-sm font-medium mb-1.5" style={{ color: "#1B2A41" }}>Email Address</label>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="john@example.com"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm focus:outline-none focus:border-orange-400 bg-white"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium mb-1.5" style={{ color: "#1B2A41" }}>Phone Number</label>
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="07xxx xxxxxx"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm focus:outline-none focus:border-orange-400 bg-white"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium mb-1.5" style={{ color: "#1B2A41" }}>Service Needed</label>
-                <select className="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm focus:outline-none focus:border-orange-400 bg-white text-gray-600" name="service">
-                  <option value="">Select a service</option>
-                  <option>Painting Service</option>
-                  <option>Tiling Installation</option>
-                  <option>Both Services</option>
-                  <option>Other / Not Sure</option>
-                </select>
-              </div>
-              <div>
-                <label className="block text-sm font-medium mb-1.5" style={{ color: "#1B2A41" }}>Your Message</label>
-                <textarea
-                  name="message"
-                  rows={4}
-                  placeholder="Tell us about your project..."
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm focus:outline-none focus:border-orange-400 bg-white resize-none"
-                  required
-                />
-              </div>
-              <button
-                type="submit"
-                className="w-full py-4 rounded-lg font-bold text-white transition-all hover:opacity-90 hover:scale-[1.01]"
-                style={{ backgroundColor: "#FF5A1A" }}
-              >
-                Send Message →
-              </button>
-            </form>
-          </div>
+          <ContactForm />
         </div>
       </section>
     </>

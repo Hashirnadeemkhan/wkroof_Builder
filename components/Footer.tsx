@@ -134,9 +134,19 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="border-t border-gray-800 py-5 px-4">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2 text-sm text-gray-600">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-3 text-sm text-gray-600">
           <p>© {new Date().getFullYear()} WK Roofbuild Ltd. All rights reserved.</p>
-          <p>Professional Building Services in London</p>
+          <p>
+            Designed by{" "}
+            <a
+              href="https://brightreachsolutions.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-gray-400 hover:text-orange-400 transition-colors"
+            >
+              Bright Reach Solutions
+            </a>
+          </p>
         </div>
       </div>
     </footer>

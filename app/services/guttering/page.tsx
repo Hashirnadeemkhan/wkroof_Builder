@@ -3,8 +3,11 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Guttering Services | WK Roofbuild",
-  description: "Professional gutter installation, cleaning, and repair services in London. Protect your property from water damage. Call 07863 216381.",
+  title:
+    "Gutter Repairs & Installation London | Roofing Specialists | WK Roof Build",
+  description:
+    "Professional gutter repair and installation services across London. Protect your property from water damage with our expert guttering solutions.",
+  keywords: ["gutter repair london"],
 };
 
 export default function GutteringPage() {

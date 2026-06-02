@@ -3,8 +3,10 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Flat Roofs | WK Roofbuild",
-  description: "Seamless flat roofing solutions for residential and commercial properties in London. Call WK Roofbuild on 07863 216381.",
+  title: "Flat Roofing London | Flat Roof Installation & Repairs | WK Roof Build",
+  description:
+    "Expert flat roofing services in London. We install and repair felt, GRP fibreglass and EPDM flat roofs for homes and businesses.",
+  keywords: ["flat roofing london"],
 };
 
 export default function FlatRoofsPage() {

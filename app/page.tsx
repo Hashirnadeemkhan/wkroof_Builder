@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import HomeContent from "@/components/pages/HomeContent";
 
 export const metadata: Metadata = {
-  title: "WK Roofbuild | Professional Painting & Tiling Services London",
+  title:
+    "Roofing Contractor London | Roof Repairs, New Roofs & Flat Roofing | WK Roof Build",
   description:
-    "WK Roofbuild Ltd — expert painting and tiling installation services across London. Quality craftsmanship, transparent pricing, certified & insured. Call 07863 216381.",
+    "Looking for a trusted roofing contractor in London? We provide roof repairs, new roof installations, flat roofing, guttering and chimney services across London. Free quotes available.",
+  keywords: ["roofing contractors london"],
   alternates: { canonical: "https://wkroofbuild.com" },
 };
 

@@ -3,9 +3,11 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Painting Service | WK Roofbuild",
+  title:
+    "Painting Services in London | Professional Painters & Decorators | WK Roof Build",
   description:
-    "Professional interior and exterior painting services in London by WK Roofbuild. Quality paints, expert preparation, flawless finish. Call 07863 216381.",
+    "Looking for professional painting services in London? We provide interior and exterior painting, decorating and property improvement solutions for homes and businesses.",
+  keywords: ["painting services"],
 };
 
 const CheckIcon = () => (

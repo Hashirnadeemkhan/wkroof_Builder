@@ -3,8 +3,11 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "New Roofs | WK Roofbuild",
-  description: "Premium new roof installations in London. Improved energy efficiency and modern appeal. Call WK Roofbuild on 07863 216381.",
+  title:
+    "New Roof Installation London | Professional Roofing Contractors | WK Roof Build",
+  description:
+    "Need a new roof in London? Our experienced roofing contractors provide durable roof installations with quality workmanship and competitive pricing.",
+  keywords: ["New Roof Installation London"],
 };
 
 export default function NewRoofsPage() {

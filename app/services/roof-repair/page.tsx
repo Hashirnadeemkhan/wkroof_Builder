@@ -3,8 +3,10 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Roof Repair | WK Roofbuild",
-  description: "Fast and reliable roof repair services in London. From minor leaks to major damage — WK Roofbuild fixes it all. Call 07863 216381.",
+  title: "Roof Repairs London | Emergency Roofing Repairs | WK Roof Build",
+  description:
+    "Reliable roof repairs in London for leaks, damaged tiles, storm damage and emergency roofing issues. Fast response and competitive prices.",
+  keywords: ["roof repair london"],
 };
 
 export default function RoofRepairPage() {

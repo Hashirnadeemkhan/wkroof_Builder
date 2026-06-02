@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -15,6 +16,9 @@ export const metadata: Metadata = {
   title: "WK Roofbuild | Professional Painting & Tiling Services London",
   description:
     "WK Roofbuild Ltd provides expert painting and tiling installation services across London. Quality craftsmanship, transparent pricing, certified & insured. Call 07863 216381.",
+  verification: {
+    google: "t3b21xMFT6UkkK2ZadqrUsOqog-3lfrE7VA-XJkr1SY",
+  },
   keywords: [
     "painting service London",
     "tiling installation London",
@@ -42,6 +46,20 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/logo.png" type="image/png" />
         <link rel="apple-touch-icon" href="/logo.png" />
+
+        {/* Google tag (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-GY300S1220"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-GY300S1220');
+          `}
+        </Script>
       </head>
       <body className={inter.className}>
         <Navbar />

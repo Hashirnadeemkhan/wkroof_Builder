@@ -3,9 +3,11 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Tiling Installation Service | WK Roofbuild",
+  title:
+    "Tile Installation London | Bathroom, Kitchen & Floor Tiling Experts | WK Roof Build",
   description:
-    "Professional tiling installation for kitchens, bathrooms, floors and walls in London by WK Roofbuild. All tile types. Call 07863 216381.",
+    "Looking for reliable tile installation in London? We provide bathroom tiling, kitchen tiling, wall tiling and floor tile installation with competitive prices and quality finishes.",
+  keywords: ["tile installation london"],
 };
 
 const CheckIcon = () => (

@@ -3,8 +3,10 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Chimney Repair | WK Roofbuild",
-  description: "Professional chimney repair and restoration services in London. Prevent leaks and improve safety. Call WK Roofbuild on 07863 216381.",
+  title: "Chimney Repairs London | Chimney Repointing & Restoration | WK Roof Build",
+  description:
+    "Specialist chimney repair services in London including repointing, flashing repairs and chimney restoration by experienced roofing professionals.",
+  keywords: ["chimney repair london"],
 };
 
 export default function ChimneyRepairPage() {

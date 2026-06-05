@@ -4,6 +4,16 @@ import { prisma } from "@/lib/prisma";
 
 export const dynamic = "force-dynamic";
 
+// Naye posts rich-text HTML hote hain. Purani plain-text posts ko
+// newlines ke hisab se paragraphs me convert kar dete hain.
+function toHtml(content: string) {
+  if (/<[a-z][\s\S]*>/i.test(content)) return content;
+  return content
+    .split(/\n{2,}/)
+    .map((block) => `<p>${block.replace(/\n/g, "<br/>")}</p>`)
+    .join("");
+}
+
 async function getPost(slug: string) {
   try {
     const decoded = decodeURIComponent(slug);
@@ -54,22 +64,11 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
               className="w-full rounded-xl object-cover mb-10 shadow-md" style={{ maxHeight: "420px" }} />
           )}
 
-          {/* Blog content */}
+          {/* Blog content (rich text HTML) */}
           <div
-            className="prose prose-lg max-w-none text-gray-700 leading-relaxed"
-            style={{
-              lineHeight: "1.9",
-              fontSize: "16px",
-            }}
-          >
-            {post.content.split("\n").map((para, i) =>
-              para.trim() ? (
-                <p key={i} className="mb-4">{para}</p>
-              ) : (
-                <br key={i} />
-              )
-            )}
-          </div>
+            className="blog-content max-w-none"
+            dangerouslySetInnerHTML={{ __html: toHtml(post.content) }}
+          />
 
           {/* Footer */}
           <div className="mt-14 pt-8 border-t border-gray-100 flex items-center justify-between flex-wrap gap-4">

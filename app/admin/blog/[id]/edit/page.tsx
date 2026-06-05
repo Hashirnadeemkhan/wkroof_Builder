@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation";
 import Link from "next/link";
 import { UploadButton } from "@/lib/uploadthing";
+import RichTextEditor from "@/components/RichTextEditor";
 
 function slugify(text: string) {
   return text.toLowerCase().replace(/[^a-z0-9\s-]/g, "").trim().replace(/\s+/g, "-");
@@ -32,6 +33,10 @@ export default function EditBlogPost() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!form.content.replace(/<(.|\n)*?>/g, "").trim()) {
+      setError("Blog content khali nahi ho sakta.");
+      return;
+    }
     setSaving(true);
     setError("");
     try {
@@ -144,8 +149,7 @@ export default function EditBlogPost() {
 
         <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
           <h2 className="font-bold text-sm mb-4" style={{ color: "#1B2A41" }}>Blog Content *</h2>
-          <textarea value={form.content} onChange={(e) => set("content", e.target.value)} rows={16} required
-            className="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-orange-400 resize-y" />
+          <RichTextEditor value={form.content} onChange={(html) => set("content", html)} />
         </div>
 
         <div className="flex items-center justify-end gap-4">

@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(npx next *)",
-      "WebFetch(domain:wkroofbuild.com)"
+      "WebFetch(domain:wkroofbuild.com)",
+      "Bash(npm install *)"
     ]
   }
 }

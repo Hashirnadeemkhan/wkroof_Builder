@@ -7,6 +7,10 @@ export const metadata: Metadata = {
   description: "Tips, guides, and news about roofing, painting, and tiling from the WK Roofbuild team in London.",
 };
 
+// Naya blog publish hote hi listing me dikhe — static cache disable.
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 type Post = { id: number; title: string; slug: string; excerpt: string | null; coverImage: string | null; createdAt: Date };
 
 async function getPosts(): Promise<Post[]> {

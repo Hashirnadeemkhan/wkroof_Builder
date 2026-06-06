@@ -4,11 +4,18 @@ import { prisma } from "@/lib/prisma";
 
 export const dynamic = "force-dynamic";
 
-// Naye posts rich-text HTML hote hain. Purani plain-text posts ko
-// newlines ke hisab se paragraphs me convert kar dete hain.
+// Blog content ko render ke liye saaf karte hain:
+// 1. Word/ChatGPT se paste kiya content har space ko &nbsp; bana deta hai —
+//    isse line wrap nahi hoti aur text screen se bahar chala jata hai. Inhe
+//    normal space me badal dete hain taake text professional tareeqe se wrap ho.
+// 2. Khali paragraphs (<p></p>, <p><br></p>) hata dete hain — extra gaps khatam.
+// 3. Purani plain-text posts ko newlines ke hisab se paragraphs me convert karte hain.
 function toHtml(content: string) {
-  if (/<[a-z][\s\S]*>/i.test(content)) return content;
-  return content
+  let html = content.replace(/&nbsp;| /g, " ");
+  html = html.replace(/<p>(?:\s|<br\s*\/?>|&nbsp;)*<\/p>/gi, "");
+
+  if (/<[a-z][\s\S]*>/i.test(html)) return html;
+  return html
     .split(/\n{2,}/)
     .map((block) => `<p>${block.replace(/\n/g, "<br/>")}</p>`)
     .join("");
@@ -65,8 +72,8 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
           )}
 
           {/* Blog content (rich text HTML) */}
-          <div
-            className="blog-content max-w-none"
+          <article
+            className="prose prose-lg max-w-none blog-content"
             dangerouslySetInnerHTML={{ __html: toHtml(post.content) }}
           />
 

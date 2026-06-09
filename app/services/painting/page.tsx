@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "Looking for professional painting services in London? We provide interior and exterior painting, decorating and property improvement solutions for homes and businesses.",
   keywords: ["painting services"],
+  alternates: { canonical: "https://wkroofbuild.com/services/painting" },
 };
 
 const CheckIcon = () => (

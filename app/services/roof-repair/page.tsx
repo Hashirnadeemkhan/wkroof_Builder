@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Reliable roof repairs in London for leaks, damaged tiles, storm damage and emergency roofing issues. Fast response and competitive prices.",
   keywords: ["roof repair london"],
+  alternates: { canonical: "https://wkroofbuild.com/services/roof-repair" },
 };
 
 export default function RoofRepairPage() {

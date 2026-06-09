@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Expert flat roofing services in London. We install and repair felt, GRP fibreglass and EPDM flat roofs for homes and businesses.",
   keywords: ["flat roofing london"],
+  alternates: { canonical: "https://wkroofbuild.com/services/flat-roofs" },
 };
 
 export default function FlatRoofsPage() {

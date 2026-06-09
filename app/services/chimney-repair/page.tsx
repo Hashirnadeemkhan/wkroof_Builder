@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Specialist chimney repair services in London including repointing, flashing repairs and chimney restoration by experienced roofing professionals.",
   keywords: ["chimney repair london"],
+  alternates: { canonical: "https://wkroofbuild.com/services/chimney-repair" },
 };
 
 export default function ChimneyRepairPage() {

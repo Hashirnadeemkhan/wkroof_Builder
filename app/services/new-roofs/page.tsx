@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     "Need a new roof in London? Our experienced roofing contractors provide durable roof installations with quality workmanship and competitive pricing.",
   keywords: ["New Roof Installation London"],
-  alternates: { canonical: "https://wkroofbuild.com/services/new-roofs" },
+  alternates: { canonical: "https://www.wkroofbuild.com/services/new-roofs" },
 };
 
 export default function NewRoofsPage() {

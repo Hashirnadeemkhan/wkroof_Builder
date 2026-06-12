@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     "Professional gutter repair and installation services across London. Protect your property from water damage with our expert guttering solutions.",
   keywords: ["gutter repair london"],
-  alternates: { canonical: "https://wkroofbuild.com/services/guttering" },
+  alternates: { canonical: "https://www.wkroofbuild.com/services/guttering" },
 };
 
 export default function GutteringPage() {

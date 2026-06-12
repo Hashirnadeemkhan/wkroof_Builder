@@ -3,6 +3,7 @@ import Link from "next/link";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "https://www.wkroofbuild.com/contact" },
   title: "Contact Us | WK Roofbuild",
   description:
     "Get in touch with WK Roofbuild Ltd for a free painting or tiling quote in London. Call 07863 216381 or email wkroofbuild@gmail.com.",

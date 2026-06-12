@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     "Looking for reliable tile installation in London? We provide bathroom tiling, kitchen tiling, wall tiling and floor tile installation with competitive prices and quality finishes.",
   keywords: ["tile installation london"],
-  alternates: { canonical: "https://wkroofbuild.com/services/tiling" },
+  alternates: { canonical: "https://www.wkroofbuild.com/services/tiling" },
 };
 
 const CheckIcon = () => (

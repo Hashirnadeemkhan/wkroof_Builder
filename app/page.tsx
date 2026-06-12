@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Looking for a trusted roofing contractor in London? We provide roof repairs, new roof installations, flat roofing, guttering and chimney services across London. Free quotes available.",
   keywords: ["roofing contractors london"],
-  alternates: { canonical: "https://wkroofbuild.com" },
+  alternates: { canonical: "https://www.wkroofbuild.com" },
 };
 
 export default function HomePage() {

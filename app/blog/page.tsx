@@ -3,6 +3,7 @@ import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "https://www.wkroofbuild.com/blog" },
   title: "Blog | WK Roofbuild",
   description: "Tips, guides, and news about roofing, painting, and tiling from the WK Roofbuild team in London.",
 };

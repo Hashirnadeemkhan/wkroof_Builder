@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "https://www.wkroofbuild.com/services" },
   title: "Our Services | WK Roofbuild",
   description: "Explore all roofing, painting, and tiling services by WK Roofbuild Ltd in London. Click any service to learn more.",
 };

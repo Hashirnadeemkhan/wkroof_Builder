@@ -9,11 +9,11 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   // Canonical domain — www version, GSC property + sitemap ke saath consistent.
-  // Isse OG/twitter URLs aur canonical tags sab www par resolve hote hain.
+  // Isse OG/twitter URLs aur relative metadata sab www par resolve hote hain.
+  // NOTE: canonical yahan set NAHI karte — warna har sub-page (about, services...)
+  // jo apni canonical nahi deti, wo galti se homepage ("/") ko canonical maan leti.
+  // Har page apni canonical khud declare karti hai (ya 301 redirect dedup karta hai).
   metadataBase: new URL("https://www.wkroofbuild.com"),
-  alternates: {
-    canonical: "/",
-  },
   icons: {
     icon: "/logo.png",
     shortcut: "/logo.png",

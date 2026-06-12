@@ -8,6 +8,12 @@ import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  // Canonical domain — www version, GSC property + sitemap ke saath consistent.
+  // Isse OG/twitter URLs aur canonical tags sab www par resolve hote hain.
+  metadataBase: new URL("https://www.wkroofbuild.com"),
+  alternates: {
+    canonical: "/",
+  },
   icons: {
     icon: "/logo.png",
     shortcut: "/logo.png",
@@ -31,7 +37,7 @@ export const metadata: Metadata = {
     title: "WK Roofbuild | Professional Painting & Tiling Services London",
     description:
       "Expert painting and tiling installation services across London. Certified, insured, and available 24/7.",
-    url: "https://wkroofbuild.com",
+    url: "https://www.wkroofbuild.com",
     siteName: "WK Roofbuild",
   },
 };

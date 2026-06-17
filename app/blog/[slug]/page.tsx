@@ -1,8 +1,16 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { cache } from "react";
 import { prisma } from "@/lib/prisma";
 
-export const dynamic = "force-dynamic";
+// Canonical domain — sitemap/GSC ke saath consistent.
+const SITE_URL = "https://www.wkroofbuild.com";
+
+// ISR: posts static render hoti hain (Google ke liye fast crawl), aur har
+// ghante revalidate hoti hain taake edits/new posts aa jayein. force-dynamic
+// hata diya — wo har request par render karta tha (slow, crawl-unfriendly).
+export const revalidate = 3600;
 
 // Blog content ko render ke liye saaf karte hain:
 // 1. Word/ChatGPT se paste kiya content har space ko &nbsp; bana deta hai —
@@ -21,21 +29,99 @@ function toHtml(content: string) {
     .join("");
 }
 
-async function getPost(slug: string) {
+// cache() = ek hi request me generateMetadata aur page dono call karein
+// to DB query sirf ek baar chale.
+const getPost = cache(async (slug: string) => {
   try {
     const decoded = decodeURIComponent(slug);
     return await prisma.blogPost.findUnique({ where: { slug: decoded } });
   } catch {
     return null;
   }
+});
+
+// Build par saari post URLs static generate karte hain — taake Google ko
+// ready-rendered HTML mile aur indexing tez ho. Nayi posts on-demand ban jati hain.
+export async function generateStaticParams() {
+  try {
+    const posts = await prisma.blogPost.findMany({ select: { slug: true } });
+    return posts.map((p) => ({ slug: p.slug }));
+  } catch {
+    return [];
+  }
+}
+
+// Har post ki apni unique title, description, canonical aur Open Graph.
+// Pehle ye missing thi — isi liye saari posts homepage ki title inherit karti
+// thin aur Google unhe duplicate samajh kar index nahi karta tha.
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const post = await getPost(params.slug);
+  if (!post) {
+    return { title: "Post Not Found | WK Roof Build" };
+  }
+
+  const url = `${SITE_URL}/blog/${encodeURIComponent(post.slug)}`;
+  const description =
+    post.excerpt?.trim() ||
+    `${post.title} — expert roofing, painting and tiling advice from the WK Roof Build team in London.`;
+
+  return {
+    title: `${post.title} | WK Roof Build`,
+    description,
+    alternates: { canonical: url },
+    openGraph: {
+      type: "article",
+      title: post.title,
+      description,
+      url,
+      siteName: "WK Roof Build",
+      images: post.coverImage ? [{ url: post.coverImage }] : undefined,
+      publishedTime: post.createdAt.toISOString(),
+      modifiedTime: post.updatedAt.toISOString(),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description,
+      images: post.coverImage ? [post.coverImage] : undefined,
+    },
+  };
 }
 
 export default async function BlogPostPage({ params }: { params: { slug: string } }) {
   const post = await getPost(params.slug);
   if (!post) notFound();
 
+  const url = `${SITE_URL}/blog/${encodeURIComponent(post.slug)}`;
+  // Article structured data — Google ko post ka type, date aur publisher
+  // saaf samajh aata hai; rich results aur indexing dono behtar hote hain.
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.excerpt || undefined,
+    image: post.coverImage || `${SITE_URL}/logo.png`,
+    datePublished: post.createdAt.toISOString(),
+    dateModified: post.updatedAt.toISOString(),
+    author: { "@type": "Organization", name: "WK Roof Build" },
+    publisher: {
+      "@type": "Organization",
+      name: "WK Roof Build",
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/logo.png` },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Banner */}
       <section
         className="relative py-24 px-6"

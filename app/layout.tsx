@@ -47,11 +47,31 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // Business entity structured data — har page par. Google ko WK Roof Build
+  // ek local roofing business ke taur par samajh aata hai (service area, phone),
+  // jisse brand + service pages ki indexing/ranking behtar hoti hai.
+  const businessJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "RoofingContractor",
+    name: "WK Roof Build",
+    url: "https://www.wkroofbuild.com",
+    image: "https://www.wkroofbuild.com/logo.png",
+    telephone: "+447863216381",
+    areaServed: { "@type": "City", name: "London" },
+    description:
+      "WK Roof Build provides roofing, roof repairs, new roofs, flat roofing, guttering, chimney repair, painting and tiling services across London.",
+  };
+
   return (
     <html lang="en">
       <head>
         <link rel="icon" href="/logo.png" type="image/png" />
         <link rel="apple-touch-icon" href="/logo.png" />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(businessJsonLd) }}
+        />
 
         {/* Google tag (gtag.js) */}
         <Script

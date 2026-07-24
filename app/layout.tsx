@@ -73,7 +73,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(businessJsonLd) }}
         />
 
-        {/* Google tag (gtag.js) */}
+        {/* Google Analytics (GA4) */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-GY300S1220"
           strategy="afterInteractive"
@@ -84,6 +84,21 @@ export default function RootLayout({
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-GY300S1220');
+          `}
+        </Script>
+
+        {/* Google Ads Conversion Tracking */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18188438724"
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads-tracking" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-18188438724');
           `}
         </Script>
       </head>
